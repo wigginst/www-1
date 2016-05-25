@@ -28,4 +28,27 @@ Saliya Ekanayake is a Ph.D. candidate in Computer Science at Indiana University,
 Bloomington. His research interests are high performance data analytics,
 large scale distributed systems, and programming languages.
 
+Andrew J. Younge
+----------------
+.. figure:: images/bio/ajyounge.jpg
+   :alt: picture andrew
+   :width: 100
+
+
+Andrew Younge is a Ph.D Candidate in Computer Science and a Persistent
+Systems Fellow at Indiana University. Andrew’s research interests
+include Cloud Computing, Distributed Systems, and High Performance
+Computing. He has worked as a member of the FutureGrid project, an
+NSF-funded experimental Cloud test-bed for scientific researchers, and
+was a visiting researcher at the University of Southern California's
+Information Sciences Institute in Arlington, VA. He received his
+Bachelors and Masters of Science from the Computer Science Department
+at Rochester Institute of Technology (RIT) in 2008 and 2010,
+respectively. During this time, Andrew worked as a Graduate Researcher
+on the Cyberaide Project in the Service Oriented Cyberinfrastructure
+Laboratory and as a Research Assistant on an experimental Social
+Psychology research project. Andrew also completed an internship at
+the University of Maryland, College Park, where he contributed to the
+Lattice Project, a regional Grid computing system.
+
 
