@@ -1,4 +1,4 @@
-ADMI Cloud Workshop
+Schedule
 ===================
 
 Workshop leaders will  assist  participants  in transforming an existing course
