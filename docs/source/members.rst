@@ -7,13 +7,34 @@ Judy Qiu
    :alt: picture judy
    :width: 100
 
-Judy Qiu is an associate professor of Computer Science at Indiana University. She graduated from Syracuse University with an
-Outstanding Graduate Student Award, completing her Ph.D. in Computer Science in 2005. She leads the SALSA project, encompassing 
-data-intensive computing at the intersection of Cloud and multicore technologies, and offers an online course CloudMOOC as part of the
-Data Science Program of the School of Informatics and Computing. Her research has been funded by NSF, NIH, Intel, Microsoft, Google,
-and Indiana University. Judy Qiu leads a new Intel Parallel Computing Center (IPCC) site at IU. She is the recipient of a NSF CAREER
-Award in 2012, Indiana University Trustees Award For Teaching Excellence in 2013-2014, and Indiana University Outstanding Junior
-Faculty Award 2015.
+Dr. Qiu is an assistant professor of Computer Science at Indiana
+University. She graduated from Syracuse University with an Outstanding
+Graduate Student Award, completing her Ph.D. in Computer Science in
+2005. She leads the SALSA project, encompassing data-intensive computing
+at the intersection of Cloud and multicore technologies, and offers an
+online course CloudMOOC as part of the Data Science Program of the
+School of Informatics and Computing. Her research has been funded by
+NSF, NIH, Microsoft, Google and Indiana University. She is the recipient
+of a NSF CAREER Award in 2012 and Indiana University Trustees Award For
+Teaching Excellence in 2013-2014.
+
+Linda Hayden
+--------
+.. figure:: images/bio/hayden.jpg
+   :alt: picture hayden
+   :width: 100
+
+Dr. Hayden holds a PhD in Mathematics and Education.  She is presently the Associate Dean of the School of Mathematics, Science and Technology at Elizabeth City State University, and the Director of the Center of Excellence in Remote Sensing Education and Research (CERSER). The CERSER program works in partnership with federal agencies, other universities and private corporations on research projects which include CReSIS (focusing on radar and seismic mapping of rapidly changing glacier zones in polar regions for impact on global warming and sea level change).  She is Principal Investigator on the NSF CyberInfrastructure from Remote Sensing of Ice Sheets project funded through the National Science Foundation Office of CyberInfrastructure CI-TEAM project.
+
+
+Edward (Clay) Swindell 
+-------
+.. figure:: images/bio/swindell.jpg
+   :alt: picture swindell 
+   :width: 100
+
+Collections Specialist, Museum of the Albemarle at Elizabeth City State University.
+
 
 Saliya Ekanayake
 ----------------
