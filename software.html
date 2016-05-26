@@ -79,8 +79,18 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hadoop">Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apache-storm">Apache Storm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -94,7 +104,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Software</a></li>
+<li><a class="reference internal" href="#">Software</a><ul>
+<li><a class="reference internal" href="#hadoop">Hadoop</a></li>
+<li><a class="reference internal" href="#apache-storm">Apache Storm</a></li>
+<li><a class="reference internal" href="#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -151,8 +166,18 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hadoop">Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apache-storm">Apache Storm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
+</ul>
+</li>
 </ul>
 
 </ul>
@@ -170,6 +195,27 @@
       
   <div class="section" id="software">
 <h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hadoop">
+<h2>Hadoop<a class="headerlink" href="#hadoop" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="http://hadoop.apache.org/images/hadoop-logo.jpg"><img alt="Hadoop" src="http://hadoop.apache.org/images/hadoop-logo.jpg" style="width: 400px;" /></a>
+</div>
+<p>Hadoop is an open source framework for distributed storage and processing of large datasets on a commodity cluster. Hadoop utilizes the Hadoop Distributed File System (HDFS) for data storage and the MapReduce model for computational processing. Hadoop 2.0 also includes the YARN resource management platform which manages multiple nodes within the cluster and is responsible for task scheduling.</p>
+</div>
+<div class="section" id="apache-storm">
+<h2>Apache Storm<a class="headerlink" href="#apache-storm" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="http://storm.apache.org/images/logo.png"><img alt="Storm" src="http://storm.apache.org/images/logo.png" style="width: 400px;" /></a>
+</div>
+<p>Storm is an open source framework for distributed streaming data processing. Storm creates a directed acyclic graph (DAG) which consists of &#8220;sprouts&#8221; and &#8220;bolts&#8221; graph verticies which handle the streaming and processing of data. As Storm processes continuing streaming data, it is configured to run infinietely until explicitly terminated.</p>
+</div>
+<div class="section" id="amazon-elastic-compute-cloud-ec2">
+<h2>Amazon Elastic Compute Cloud (EC2)<a class="headerlink" href="#amazon-elastic-compute-cloud-ec2" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="http://quintagroup.com/cms/amazon/ec2.png"><img alt="Amazon" src="http://quintagroup.com/cms/amazon/ec2.png" style="width: 400px;" /></a>
+</div>
+<p>The Amazon Elastic Compute Cloud is a central component of the Amazon Web Services, which provides virtualized computing resources on demand. Users can create an manage VM instances, thereby renting computing services based on resource requests. Amazon EC2 also provides storage and higher level platform services such as Amazon S3, EBS, ELB, among many others.</p>
+</div>
 </div>
 
 
