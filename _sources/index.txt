@@ -1,10 +1,19 @@
 Cloud Computing Workshop
-=======
+=========================
 
 
 
 EAGER: Remote Sensing Curriculum Enhancement using Cloud Computing
---------
+-------------------------------------------------------------------
+
+EAGER NSf Proposal_.
+
+EAGER NSF Award_.
+
+.. _Proposal: http://nia.ecsu.edu/eager/docs/EAGER_proposal.pdf
+.. _Award: http://nia.ecsu.edu/eager/docs/NSF_FastLane%20_%20Proposal%20Status.pdf
+
+
 
 The overarching goal of this EAGER proposal is to investigate the concept that Computational Science curricula and research using Cloud Computing can be well suited for Minority Serving institutions (MSI's). Many aspects of Cloud are compelling for MSI's. This project will employ enhancements to a graduate level course on Remote Sensing at a HBCU campus and follow up with two additional courses to investigate its goals. The project is a collaboration between Elizabeth City State University (ECSU), an HBCU, and Indiana University (IU). Remote sensing applications collect high volumes of data that exceed the capabilities of conventional computing systems. This motivates the use of Cloud services and high performance computing (HPC) to support the associated storage and computation. Classes developed at ECSU and IU will be delivered by cloud-based online technologies to ECSU. This is a high-risk exploratory work both in its goals and methods, and if successful will provide a scalable template for MSI and non-MSI institutions for their conduct of teaching and research over Cloud platforms. This pilot project will attempt to introduce curricula and research for a very multidisciplinary set of topics using the Remote Sensing course with shared modules at a HBCU with multiple constraints including multi-institutional collaborative curriculum development and teaching, and employment of emerging curricular platforms. An important goal is to identify needed improvements and resources to scale their ideas for following up on a broader adoption of their model in MSI graduate and undergraduate curricula and research.
 
