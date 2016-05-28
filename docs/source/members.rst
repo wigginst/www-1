@@ -40,7 +40,7 @@ Saliya Ekanayake
    :width: 100
 
 Saliya Ekanayake is a Ph.D. candidate in Computer Science at Indiana University,
-Bloomington. His research interests are high performance data analytics,
+Bloomington. His research interests are high performance,
 large scale distributed systems, and programming languages.
 
 Andrew J. Younge
