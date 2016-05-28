@@ -26,15 +26,15 @@ Cloud Computing potentially has the capability to host both parallel and distrib
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    schedule
    members
    prerequisites
    tutorials
-    wordcount
-    kmeans
-    storm
+   wordcount
+   kmeans
+   storm
    software
 
 
