@@ -1,10 +1,10 @@
 Cloud Computing Workshop
-=========================
+========================
 
 
 
 EAGER: Remote Sensing Curriculum Enhancement using Cloud Computing
--------------------------------------------------------------------
+------------------------------------------------------------------
 
 EAGER NSF Proposal_.
 
@@ -30,6 +30,7 @@ Contents:
 
    schedule
    members
+   prerequisites
    tutorials
    software
 
