@@ -18,14 +18,13 @@ Ex 3: WordCount on Storm
 
 Utilize a streaming wordcount system using the Storm streaming tool.
 
+----------------------------------------------------------------------
 
 Contents:
 
 .. toctree::
    :maxdepth: 1
-   :caption:tutorials
 
    wordcount
    kmeans
    storm
-
