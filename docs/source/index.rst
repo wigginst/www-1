@@ -32,9 +32,6 @@ Contents:
    members
    prerequisites
    tutorials
-   wordcount
-   kmeans
-   storm
    software
 
 
