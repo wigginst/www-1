@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Storm Word Count &mdash; ADMICloud 1.0 documentation</title>
+    <title>Apache Storm Word Count &mdash; ADMICloud 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,6 +30,9 @@
     <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="ADMICloud 1.0 documentation" href="index.html" />
+    <link rel="up" title="Tutorials" href="tutorials.html" />
+    <link rel="next" title="Software" href="software.html" />
+    <link rel="prev" title="K-Means" href="kmeans.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -64,11 +67,11 @@
      href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="schedule.html">Schedule</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-one-friday-june-10">Day one (Friday June 10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-two-saturday-june-11">Day Two (Saturday June 11)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="members.html">Members</a><ul>
@@ -80,6 +83,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software.html#hadoop">Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="software.html#apache-storm">Apache Storm</a></li>
@@ -99,7 +108,13 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Storm Word Count</a></li>
+<li><a class="reference internal" href="#">Apache Storm Word Count</a><ul>
+<li><a class="reference internal" href="#download-storm">Download storm</a></li>
+<li><a class="reference internal" href="#download-and-start-zookeeper">Download and start ZooKeeper</a></li>
+<li><a class="reference internal" href="#start-storm-cluster-on-local-machine">Start Storm Cluster on Local machine</a></li>
+<li><a class="reference internal" href="#run-the-example-word-count">Run the example word count</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -108,6 +123,14 @@
             
               
                 
+  <li>
+    <a href="kmeans.html" title="Previous Chapter: K-Means"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; K-Means</span>
+    </a>
+  </li>
+  <li>
+    <a href="software.html" title="Next Chapter: Software"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Software &raquo;</span>
+    </a>
+  </li>
               
             
             
@@ -139,11 +162,11 @@
   <div class="row">
       <div class="col-md-3">
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
-><ul>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a><ul>
+><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="schedule.html">Schedule</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-one-friday-june-10">Day one (Friday June 10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-two-saturday-june-11">Day Two (Saturday June 11)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="members.html">Members</a><ul>
@@ -155,6 +178,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software.html#hadoop">Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="software.html#apache-storm">Apache Storm</a></li>
@@ -176,8 +205,49 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="storm-word-count">
-<h1>Storm Word Count<a class="headerlink" href="#storm-word-count" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="apache-storm-word-count">
+<h1>Apache Storm Word Count<a class="headerlink" href="#apache-storm-word-count" title="Permalink to this headline">¶</a></h1>
+<p>Apache Storm is a distributed stream processing engine.</p>
+<p>These are the things we will look at in this Tutorial.</p>
+<ul class="simple">
+<li>Download Apache Storm</li>
+<li>Set it up on your machine</li>
+</ul>
+<div class="section" id="download-storm">
+<h2>Download storm<a class="headerlink" href="#download-storm" title="Permalink to this headline">¶</a></h2>
+<p>wget <a class="reference external" href="http://mirrors.ibiblio.org/apache/storm/apache-storm-0.10.1/apache-storm-0.10.1.tar.gz">http://mirrors.ibiblio.org/apache/storm/apache-storm-0.10.1/apache-storm-0.10.1.tar.gz</a></p>
+<p>tar -xvf apache-storm-0.10.1.tar.gz</p>
+</div>
+<div class="section" id="download-and-start-zookeeper">
+<h2>Download and start ZooKeeper<a class="headerlink" href="#download-and-start-zookeeper" title="Permalink to this headline">¶</a></h2>
+<p>wget <a class="reference external" href="http://apache.mirrors.pair.com/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz">http://apache.mirrors.pair.com/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz</a></p>
+<p>tar -xvf zookeeper-3.4.8.tar.gz</p>
+<p>cd zookeeper-3.4.8</p>
+<p>cp conf/zoo_sample.cfg conf/zoo.cfg</p>
+<p>./bin/zkServer.sh start</p>
+</div>
+<div class="section" id="start-storm-cluster-on-local-machine">
+<h2>Start Storm Cluster on Local machine<a class="headerlink" href="#start-storm-cluster-on-local-machine" title="Permalink to this headline">¶</a></h2>
+<p>cd ../apache-storm-0.10.1</p>
+<p>In one terminal start the nimbus server</p>
+<p>./bin/storm nimbus</p>
+<p>In another terminal start the supervisor</p>
+<p>./bin/storm supervisor</p>
+<p>In the 3rd terminal start the Storm Web UI</p>
+<p>./bin/storm ui</p>
+<p>Above command will start the Storm UI. You can visit</p>
+<p><a class="reference external" href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></p>
+<p>to view the storm cluster.</p>
+</div>
+<div class="section" id="run-the-example-word-count">
+<h2>Run the example word count<a class="headerlink" href="#run-the-example-word-count" title="Permalink to this headline">¶</a></h2>
+<p>Now open another termial to run a Storm example word count</p>
+<p>./bin/storm jar examples/storm-starter/storm-starter-topologies-0.10.1.jar storm.starter.WordCountTopology WordCount</p>
+<p>You can view the topology by going to the web browser.</p>
+<p><a class="reference external" href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></p>
+<p>To kill the topology use the command</p>
+<p>./bin/storm kill WordCount</p>
+</div>
 </div>
 
 
@@ -193,7 +263,7 @@
     </p>
     <p>
         &copy; Copyright 2016, DSC.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1+.<br/>
     </p>
   </div>
 </footer>
