@@ -112,6 +112,7 @@
 <li><a class="reference internal" href="#download-storm">Download storm</a></li>
 <li><a class="reference internal" href="#download-and-start-zookeeper">Download and start ZooKeeper</a></li>
 <li><a class="reference internal" href="#start-storm-cluster-on-local-machine">Start Storm Cluster on Local machine</a></li>
+<li><a class="reference internal" href="#word-count-example">Word Count example</a></li>
 <li><a class="reference internal" href="#run-the-example-word-count">Run the example word count</a></li>
 </ul>
 </li>
@@ -238,6 +239,16 @@
 <p>Above command will start the Storm UI. You can visit</p>
 <p><a class="reference external" href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></p>
 <p>to view the storm cluster.</p>
+</div>
+<div class="section" id="word-count-example">
+<h2>Word Count example<a class="headerlink" href="#word-count-example" title="Permalink to this headline">¶</a></h2>
+<p>Word count is a simple streaming example where storm keeps track of the words and their counts streaming in. This example
+is included in the Storm distribution. The source code of the example can be found in</p>
+<p>examples/storm-starter/src/jvm/storm/starter/WordCountTopology.java</p>
+<p>In this example there are three processing units arranged in the graph.</p>
+<p>RandomSentenceSpout (spout) &#8211;&gt; SplitSentence (bolt) &#8211;&gt; WordCount (bolt)</p>
+<p>RandomSentenceSpout generates random sentnces. SplitSentence splits these sentences into words. These words are sent to
+WordCount bolt where the count is kept.</p>
 </div>
 <div class="section" id="run-the-example-word-count">
 <h2>Run the example word count<a class="headerlink" href="#run-the-example-word-count" title="Permalink to this headline">¶</a></h2>
