@@ -52,6 +52,21 @@ http://localhost:8080/index.html
 
 to view the storm cluster.
 
+Word Count example
+------------------
+
+Word count is a simple streaming example where storm keeps track of the words and their counts streaming in. This example
+is included in the Storm distribution. The source code of the example can be found in
+
+examples/storm-starter/src/jvm/storm/starter/WordCountTopology.java
+
+In this example there are three processing units arranged in the graph.
+
+RandomSentenceSpout (spout) --> SplitSentence (bolt) --> WordCount (bolt)
+
+RandomSentenceSpout generates random sentnces. SplitSentence splits these sentences into words. These words are sent to
+WordCount bolt where the count is kept.
+
 Run the example word count
 --------------------------
 
