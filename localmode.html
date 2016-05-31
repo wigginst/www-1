@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>K-Means &mdash; ADMICloud 1.0 documentation</title>
+    <title>Local Mode &mdash; ADMICloud 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -79,7 +79,16 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software.html#hadoop">Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="software.html#apache-storm">Apache Storm</a></li>
@@ -99,7 +108,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">K-Means</a></li>
+<li><a class="reference internal" href="#">Local Mode</a></li>
 </ul>
 </ul>
 </li>
@@ -115,7 +124,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/kmeans.txt"
+  <a href="_sources/localmode.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -154,7 +163,16 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software.html#hadoop">Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="software.html#apache-storm">Apache Storm</a></li>
@@ -176,8 +194,66 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="k-means">
-<h1>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="local-mode">
+<h1>Local Mode<a class="headerlink" href="#local-mode" title="Permalink to this headline">¶</a></h1>
+<p>In order to setup Hadoop properly in your local machine you need to first satisfy the following prerequisites in your environment.</p>
+<ol class="arabic">
+<li><p class="first">Java</p>
+<p>Download Oracle JDK 8 from <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>
+Extract the archive, use the following steps to perform this</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span>
+mkdir software
+<span class="nb">cd</span> software
+wget --no-cookies --no-check-certificate --header <span class="s2">&quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot;</span> <span class="s2">&quot;http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.tar.gz&quot;</span>
+tar xzf jdk-8u91-linux-x64.tar.gz
+</pre></div>
+</div>
+<p>Set the following environment variables. (You can set the variables in the .bashrc file). You can use the following command to open and edit the .bashrc file. We also need to install vim editor to edit the files</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install vim
+vim ~/.bashrc
+</pre></div>
+</div>
+<p>Add the the following lines to the end of the</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">JAVA_HOME</span><span class="o">=</span>~/software/jdk1.8.0_91
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> JAVA_HOME PATH
+</pre></div>
+</div>
+<p>And run the following command in order to make sure the changes are applied. You should see a output simillar to the one given below after running the code</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+java -version
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>java version <span class="s2">&quot;1.8.0_66&quot;</span>
+Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.8.0_66-b17<span class="o">)</span>
+Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.66-b17, mixed mode<span class="o">)</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p class="first">SSH and Rsync</p>
+<p>Install SSH and Rsync is not already installed in the environment.</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install ssh
+sudo apt-get install rsync
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Download and extract latest Hadoop binary into your machine. The latest hadoop binary files are available at <a class="reference external" href="http://hadoop.apache.org/releases.html">http://hadoop.apache.org/releases.html</a>. The following commands will download and extract Hadoop version 2.7.2.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/software
+wget http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz
+tar -xzvf hadoop-2.7.2.tar.gz
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Make sure everything was done properly. Execute the following command from the hadoop folder that we just extracted</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/hadoop
+</pre></div>
+</div>
 </div>
 
 

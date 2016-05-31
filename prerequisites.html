@@ -80,7 +80,10 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
@@ -106,7 +109,10 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Prerequisites</a></li>
+<li><a class="reference internal" href="#">Prerequisites</a><ul>
+<li><a class="reference internal" href="#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -165,7 +171,10 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
@@ -195,40 +204,9 @@
       
   <div class="section" id="prerequisites">
 <h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h1>
-<p>In order to setup Hadoop properly in your local machine you need to first satisfy the following prerequisites in your environment.</p>
-<ol class="arabic">
-<li><p class="first">Java</p>
-<p>Download Oracle JDK 8 from <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>
-Extract the archive to a folder named jdk1.8.0
-Set the following environment variables. (You can set the variables in the .bashrc file)</p>
-</li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">JAVA_HOME</span><span class="o">=</span>&lt;path-to-jdk1.8.0-directory&gt;
-<span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> JAVA_HOME PATH
-</pre></div>
-</div>
-<ol class="arabic" start="2">
-<li><p class="first">SSH and Rsync</p>
-<p>Install SSH and Rsync is not already installed in the environment.</p>
-</li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install ssh
-sudo apt-get install rsync
-</pre></div>
-</div>
-<ol class="arabic simple" start="3">
-<li>Download and extract latest Hadoop binary into your machine. The latest hadoop binary files are available at <a class="reference external" href="http://hadoop.apache.org/releases.html">http://hadoop.apache.org/releases.html</a>. The following commands will download and extract Hadoop version 2.7.2.</li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>wget http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz
-tar -xzvf hadoop-2.7.2.tar.gz
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
-<li>Make sure everything was done properly. Execute the following command from the hadoop folder that we just extracted</li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/hadoop
-</pre></div>
+<div class="section" id="this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">
+<h2>This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).<a class="headerlink" href="#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws" title="Permalink to this headline">¶</a></h2>
+<p>Contents:</p>
 </div>
 </div>
 
@@ -245,7 +223,7 @@ tar -xzvf hadoop-2.7.2.tar.gz
     </p>
     <p>
         &copy; Copyright 2016, DSC.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1+.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.<br/>
     </p>
   </div>
 </footer>

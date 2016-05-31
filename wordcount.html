@@ -82,7 +82,10 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
@@ -113,7 +116,11 @@
 <li><a class="reference internal" href="#writing-the-reducer-class">Writing the Reducer Class</a></li>
 <li><a class="reference internal" href="#writing-main-method">Writing Main Method</a></li>
 <li><a class="reference internal" href="#complete-code">Complete Code</a></li>
-<li><a class="reference internal" href="#compiling-code">Compiling Code</a></li>
+<li><a class="reference internal" href="#compiling-the-code">Compiling the Code</a><ul>
+<li><a class="reference internal" href="#optional">Optional</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-the-code">Running the Code.</a></li>
 </ul>
 </li>
 </ul>
@@ -178,7 +185,10 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
@@ -351,8 +361,56 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="compiling-code">
-<h2>Compiling Code<a class="headerlink" href="#compiling-code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compiling-the-code">
+<h2>Compiling the Code<a class="headerlink" href="#compiling-the-code" title="Permalink to this headline">¶</a></h2>
+<p>In order to compile the code we need to create a .java file that contains our code. execute the following commands and paste the code listed above into the file created by the vim command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/software/hadoop-2.7.2
+vim WordCount.java
+</pre></div>
+</div>
+<p>They are several ways to generate an jar file from WordCount.java. The following is a very simple and straightforward method that can be used.  Move to the hadoop directory and execute the following commands. You need to have WordCount.java file also under the hadoop directory</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/software/hadoop-2.7.2
+<span class="nb">export</span> <span class="nv">HADOOP_CLASSPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib/tools.jar
+./bin/hadoop com.sun.tools.javac.Main WordCount.java
+jar cf wc.jar WordCount*.class
+</pre></div>
+</div>
+<p>This will create a jar file that contains the compiled classes needed to run the program on Hadoop.</p>
+<div class="section" id="optional">
+<h3>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h3>
+<p>Another more cleaner method will be to create a MVN project for the WordCount example and simply do a “mvn clean install” which will produce a jar file. You will need to add the following dependency in the pom.xml</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.hadoop<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>hadoop-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.2.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running-the-code">
+<h2>Running the Code.<a class="headerlink" href="#running-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Next we will run the example on a local standalone Hadoop node. Before we run the example we need to create a set of input files that will be given to the program.</p>
+<p>First create a directory to put all the input files in. The program will read all the files that are in this folder. Use the following commands to create the files and directories</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mkdir -p ~/hadoop/admicloudtutorial/wordcount/input
+<span class="nb">cd</span> ~/hadoop/admicloudtutorial/wordcount/input
+vim 1.txt
+vim 2.txt
+</pre></div>
+</div>
+<p>Create two text files 1.txt and 2.txt under the folder containing the following</p>
+<p>1.txt - Hello World Bye World</p>
+<p>2.txt - Hello Hadoop Goodbye Hadoop</p>
+<p>To run the mapreduce job execute the following command from the hadoop directory</p>
+<p>After the job has completed execute the following command and check the output that was generated.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cat ~/hadoop/admicloudtutorial/wordcount/output/part-r-00000
+Bye 1
+Goodbye     1
+Hadoop      2
+Hello       2
+World       2
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -369,7 +427,7 @@
     </p>
     <p>
         &copy; Copyright 2016, DSC.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1+.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.<br/>
     </p>
   </div>
 </footer>

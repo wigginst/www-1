@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Software &mdash; ADMICloud 1.0 documentation</title>
+    <title>Distributed Mode &mdash; ADMICloud 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,9 +30,6 @@
     <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="ADMICloud 1.0 documentation" href="index.html" />
-    <link rel="up" title="Schedule" href="schedule.html" />
-    <link rel="next" title="Prerequisites" href="prerequisites.html" />
-    <link rel="prev" title="Tutorials" href="tutorials.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -67,11 +64,11 @@
      href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="schedule.html">Schedule</a><ul class="current">
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-one-friday-june-10">Day one (Friday June 10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-two-saturday-june-11">Day Two (Saturday June 11)</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="members.html">Members</a><ul>
@@ -82,11 +79,20 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#hadoop">Hadoop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#apache-storm">Apache Storm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software.html#hadoop">Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software.html#apache-storm">Apache Storm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software.html#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
 </ul>
 </li>
 </ul>
@@ -102,12 +108,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Software</a><ul>
-<li><a class="reference internal" href="#hadoop">Hadoop</a></li>
-<li><a class="reference internal" href="#apache-storm">Apache Storm</a></li>
-<li><a class="reference internal" href="#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Distributed Mode</a></li>
 </ul>
 </ul>
 </li>
@@ -116,14 +117,6 @@
             
               
                 
-  <li>
-    <a href="tutorials.html" title="Previous Chapter: Tutorials"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Tutorials</span>
-    </a>
-  </li>
-  <li>
-    <a href="prerequisites.html" title="Next Chapter: Prerequisites"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Prerequisites &raquo;</span>
-    </a>
-  </li>
               
             
             
@@ -131,7 +124,7 @@
             
               <li class="hidden-sm">
 <div id="sourcelink">
-  <a href="_sources/software.txt"
+  <a href="_sources/distributedmode.txt"
      rel="nofollow">Source</a>
 </div></li>
             
@@ -155,11 +148,11 @@
   <div class="row">
       <div class="col-md-3">
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
-><ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="schedule.html">Schedule</a><ul class="current">
+><ul>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-one-friday-june-10">Day one (Friday June 10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-two-saturday-june-11">Day Two (Saturday June 11)</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schedule.html#day-three-sunday-june-12">Day Three (Sunday June 12)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="members.html">Members</a><ul>
@@ -170,11 +163,20 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#hadoop">Hadoop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#apache-storm">Apache Storm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-1-wordcount-on-hadoop">Ex 1: Wordcount on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-2-k-means-clustering-on-hadoop">Ex 2: K-Means clustering on Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#ex-3-wordcount-on-storm">Ex 3: WordCount on Storm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software.html#hadoop">Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software.html#apache-storm">Apache Storm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software.html#amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a></li>
 </ul>
 </li>
 </ul>
@@ -192,29 +194,9 @@
       </div>
     <div class="col-md-9 content">
       
-  <div class="section" id="software">
-<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="hadoop">
-<h2>Hadoop<a class="headerlink" href="#hadoop" title="Permalink to this headline">¶</a></h2>
-<div class="figure">
-<a class="reference internal image-reference" href="http://hadoop.apache.org/images/hadoop-logo.jpg"><img alt="Hadoop" src="http://hadoop.apache.org/images/hadoop-logo.jpg" style="width: 400px;" /></a>
-</div>
-<p>Hadoop is an open source framework for distributed storage and processing of large datasets on a commodity cluster. Hadoop utilizes the Hadoop Distributed File System (HDFS) for data storage and the MapReduce model for computational processing. Hadoop 2.0 also includes the YARN resource management platform which manages multiple nodes within the cluster and is responsible for task scheduling.</p>
-</div>
-<div class="section" id="apache-storm">
-<h2>Apache Storm<a class="headerlink" href="#apache-storm" title="Permalink to this headline">¶</a></h2>
-<div class="figure">
-<a class="reference internal image-reference" href="http://storm.apache.org/images/logo.png"><img alt="Storm" src="http://storm.apache.org/images/logo.png" style="width: 400px;" /></a>
-</div>
-<p>Storm is an open source framework for distributed streaming data processing. Storm creates a directed acyclic graph (DAG) which consists of &#8220;sprouts&#8221; and &#8220;bolts&#8221; graph verticies which handle the streaming and processing of data. As Storm processes continuing streaming data, it is configured to run infinietely until explicitly terminated.</p>
-</div>
-<div class="section" id="amazon-elastic-compute-cloud-ec2">
-<h2>Amazon Elastic Compute Cloud (EC2)<a class="headerlink" href="#amazon-elastic-compute-cloud-ec2" title="Permalink to this headline">¶</a></h2>
-<div class="figure">
-<a class="reference internal image-reference" href="http://quintagroup.com/cms/amazon/ec2.png"><img alt="Amazon" src="http://quintagroup.com/cms/amazon/ec2.png" style="width: 400px;" /></a>
-</div>
-<p>The Amazon Elastic Compute Cloud is a central component of the Amazon Web Services, which provides virtualized computing resources on demand. Users can create an manage VM instances, thereby renting computing services based on resource requests. Amazon EC2 also provides storage and higher level platform services such as Amazon S3, EBS, ELB, among many others.</p>
-</div>
+  <div class="section" id="distributed-mode">
+<h1>Distributed Mode<a class="headerlink" href="#distributed-mode" title="Permalink to this headline">¶</a></h1>
+<p>We will use Amazon Web Serivices</p>
 </div>
 
 
