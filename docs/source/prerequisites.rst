@@ -7,8 +7,8 @@ This section describes how to set up Hadoop on local mode, pseudo-distributed mo
 Contents:
 
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 1
 
-    localmode
-    pseudodistributedmode
-    distributedmode
+   localmode
+   pseudodistributedmode
+   distributedmode
