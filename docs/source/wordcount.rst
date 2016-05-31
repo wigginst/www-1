@@ -148,5 +148,60 @@ The complete code of the WordCount example is below
 
     }
 
-Compiling Code
+Compiling the Code
 -------------
+
+They are several ways to generate an jar file from WordCount.java. The following is a very simple and straightforward method that can be used.  Move to the hadoop directory and execute the following commands. You need to have WordCount.java file also under the hadoop directory
+
+.. code-block:: bash
+
+    export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
+    ./bin/hadoop com.sun.tools.javac.Main WordCount.java
+    jar cf wc.jar WordCount*.class
+
+
+This will create a jar file that contains the compiled classes needed to run the program on Hadoop.
+
+Another more cleaner method will be to create a MVN project for the WordCount example and simply do a “mvn clean install” which will produce a jar file. You will need to add the following dependency in the pom.xml
+
+.. code-block:: xml
+
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-core</artifactId>
+        <version>1.2.1</version>
+    </dependency>
+
+Running the Code.
+--------------
+
+Next we will run the example on a local standalone Hadoop node. Before we run the example we need to create a set of input files that will be given to the program.
+
+First create a directory to put all the input files in. The program will read all the files that are in this folder. Lets say the created folder has the following path
+
+.. code-block:: bash
+
+    /home/username/hadoop/admicloud/tutorial/wordcount/input
+
+Create two text files 1.txt and 2.txt under the folder containing the following
+
+1.txt - Hello World Bye World
+
+2.txt - Hello Hadoop Goodbye Hadoop
+
+To run the mapreduce job execute the following command from the hadoop directory
+
+.. code-block:: bash
+
+    ./bin/hadoop jar wc.jar WordCount /home/username/hadoop/admicloud/tutorial/wordcount/input /home/username/hadoop/admicloud/tutorial/wordcount/output
+
+After the job has completed execute the following command and check the output that was generated.
+
+.. code-block:: bash
+
+    cat /home/username/hadoop/admicloud/tutorial/wordcount/output/part-r-00000
+    Bye	1
+    Goodbye	1
+    Hadoop	2
+    Hello	2
+    World	2
