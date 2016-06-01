@@ -30,6 +30,9 @@
     <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="ADMICloud 1.0 documentation" href="index.html" />
+    <link rel="up" title="Prerequisites" href="prerequisites.html" />
+    <link rel="next" title="Distributed Mode" href="distributedmode.html" />
+    <link rel="prev" title="Local Mode" href="localmode.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -64,7 +67,7 @@
      href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-one-friday-june-10">Day one (Friday June 10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-two-saturday-june-11">Day Two (Saturday June 11)</a></li>
@@ -79,8 +82,10 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="localmode.html">Local Mode</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pseudo-distributed Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributedmode.html">Distributed Mode</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
@@ -108,7 +113,14 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Pseudo-distributed Mode</a></li>
+<li><a class="reference internal" href="#">Pseudo-distributed Mode</a><ul>
+<li><a class="reference internal" href="#setup-passphraseless-ssh">Setup passphraseless ssh</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#start-daemons">Start Daemons</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#stop-daemons">Stop daemons</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -117,6 +129,14 @@
             
               
                 
+  <li>
+    <a href="localmode.html" title="Previous Chapter: Local Mode"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Local Mode</span>
+    </a>
+  </li>
+  <li>
+    <a href="distributedmode.html" title="Next Chapter: Distributed Mode"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Distributed Mode &raquo;</span>
+    </a>
+  </li>
               
             
             
@@ -148,7 +168,7 @@
   <div class="row">
       <div class="col-md-3">
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
-><ul>
+><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-one-friday-june-10">Day one (Friday June 10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="schedule.html#day-two-saturday-june-11">Day Two (Saturday June 11)</a></li>
@@ -163,8 +183,10 @@
 <li class="toctree-l2"><a class="reference internal" href="members.html#andrew-j-younge">Andrew J. Younge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#this-section-describes-how-to-set-up-hadoop-on-local-mode-pseudo-distributed-mode-and-distributed-mode-for-local-mode-and-pseduo-distributed-mode-if-you-are-using-windows-machine-please-install-virtual-box-and-install-ubuntu-14-04-on-i-if-you-are-using-linux-machine-or-mac-machine-you-can-use-the-terminal-for-distributed-mode-you-will-use-amazon-web-services-aws">This section describes how to set up Hadoop on local mode, pseudo-distributed mode and distributed mode. For local mode and pseduo-distributed mode, if you are using windows machine, please install virtual box and install Ubuntu 14.04 on i; if you are using linux machine or mac machine, you can use the terminal. For distributed mode, you will use Amazon Web Services (AWS).</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="prerequisites.html">Prerequisites</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="localmode.html">Local Mode</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pseudo-distributed Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributedmode.html">Distributed Mode</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
@@ -196,6 +218,182 @@
       
   <div class="section" id="pseudo-distributed-mode">
 <h1>Pseudo-distributed Mode<a class="headerlink" href="#pseudo-distributed-mode" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup-passphraseless-ssh">
+<h2>Setup passphraseless ssh<a class="headerlink" href="#setup-passphraseless-ssh" title="Permalink to this headline">¶</a></h2>
+<p>Firstly, check with the following command:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ ssh localhost</div></blockquote>
+<p>If you cannot ssh to the localhost without a passphrase, use the following commands to setup passphraseless ssh:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>$ cd ~/.ssh
+$ ssh-keygen -t rsa</p>
+<blockquote>
+<div>(hit enter to all the options)</div></blockquote>
+<p>$ cat id_rsa.pub &gt;&gt; authorized_keys</p>
+</div></blockquote>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Modify the following files, replace $HADOOP_HOME with your own hadoop home path.</p>
+<p>In $HADOOP_HOME/etc/hadoop/hadoop-env.sh, replace ${JAVA_HOME} with your own Java home path. If it&#8217;s ~/software/jdk1.8.0_91, then</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># The java implementation to use.</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>~/software/jdk1.8.0_91#The java implementation to use.
+</pre></div>
+</div>
+<p>$HADOOP_HOME/etc/hadoop/core-site.xml:
+.. code-block:: xml</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;configuration&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;property&gt;</dt>
+<dd><blockquote class="first">
+<div>&lt;name&gt;fs.default.name&lt;/name&gt;
+&lt;value&gt;hdfs://localhost:9010&lt;/value&gt;</div></blockquote>
+<p class="last">&lt;/property&gt;</p>
+</dd>
+<dt>&lt;property&gt;</dt>
+<dd>&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+&lt;value&gt;$HADOOP_HOME/tmp&lt;/value&gt;
+&lt;description&gt;A base for other temporary directories.&lt;/description&gt;</dd>
+</dl>
+<p class="last">&lt;/property&gt;</p>
+</dd>
+</dl>
+<p>&lt;/configuration&gt;</p>
+</div></blockquote>
+<p>$HADOOP_HOME/etc/hadoop/hdfs-site.xml:
+.. code-block:: xml</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;configuration&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;property&gt;</dt>
+<dd>&lt;name&gt;dfs.replication&lt;/name&gt;
+&lt;value&gt;1&lt;/value&gt;</dd>
+</dl>
+<p class="last">&lt;/property&gt;</p>
+</dd>
+</dl>
+<p>&lt;/configuration&gt;</p>
+</div></blockquote>
+<p>$HADOOP_HOME/etc/hadoop/mapred-site.xml:
+.. code-block:: xml</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;configuration&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;property&gt;</dt>
+<dd>&lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+&lt;value&gt;yarn&lt;/value&gt;</dd>
+</dl>
+<p class="last">&lt;/property&gt;</p>
+</dd>
+</dl>
+<p>&lt;/configuration&gt;</p>
+</div></blockquote>
+<p>$HADOOP_HOME/etc/hadoop/yarn-site.xml:
+.. code-block:: xml</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;configuration&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;property&gt;</dt>
+<dd>&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+&lt;value&gt;localhost&lt;/value&gt;</dd>
+</dl>
+<p>&lt;/property&gt;</p>
+<dl class="docutils">
+<dt>&lt;property&gt;</dt>
+<dd>&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</dd>
+</dl>
+<p class="last">&lt;/property&gt;</p>
+</dd>
+</dl>
+<p>&lt;/configuration&gt;</p>
+</div></blockquote>
+</div>
+<div class="section" id="start-daemons">
+<h2>Start Daemons<a class="headerlink" href="#start-daemons" title="Permalink to this headline">¶</a></h2>
+<p>1. Format the file system:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ $HADOOP_HOME/bin/hdfs namenode -format</div></blockquote>
+<p>If you can see information like this, the format process should be successful.
+.. code-block:: bash</p>
+<blockquote>
+<div>xx/xx/xx xx:xx:xx INFO util.ExitUtil: Exiting with status 0
+xx/xx/xx xx:xx:xx INFO namenode.NameNode: SHUTDOWN_MSG:
+/<strong>********************************************************</strong>
+SHUTDOWN_MSG: Shutting down NameNode at xxx.xxx.xxx.xxx</div></blockquote>
+<p>2. Launch NameNode daemon and DataNode daemon:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ $HADOOP_HOME/sbin/start-dfs.sh</div></blockquote>
+<p>The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)</p>
+<p>3. Check if the daemons are started sucessfully:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ jps
+xxxxx NameNode
+xxxxx SecondaryNameNode
+xxxxx DataNode
+xxxxx Jps</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Browse the web interface for the NameNode. By default it&#8217;s at: <a class="reference external" href="http://localhost:50070">http://localhost:50070</a></li>
+</ol>
+<p>5. Start ResourceManager daemon and NodeManager Daemon:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ $HADOOP_HOME/sbin/start-yarn.sh</div></blockquote>
+<p>6. Check if the daemons are started sucessfully:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ jps
+xxxxx NameNode
+xxxxx SecondaryNameNode
+xxxxx DataNode
+xxxxx NodeManager
+xxxxx Jps
+xxxxx ResourceManager</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Browse the web interface for the ResourceManager. By default it&#8217;s at <a class="reference external" href="http://localhost:8088">http://localhost:8088</a></li>
+</ol>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>1. Make the Hadoop Didtributed File System (HDFS) directories
+.. code-block:: bash</p>
+<blockquote>
+<div>$ $HADOOP_HOME/bin/hdfs dfs -mkdir -p .
+$ $HADOOP_HOME/bin/hdfs dfs -mkdir input</div></blockquote>
+<p>2. Copy the input files into HDFS. In this example, we use files in $HADOOP_HOME/etc/hadoop/ directory as input files
+.. code-block:: bash</p>
+<blockquote>
+<div>$ $HADOOP_HOME/bin/hdfs dfs -put $HADOOP_HOME/etc/hadoop/* input</div></blockquote>
+<p>3. Run the &#8220;grep&#8221; example provided:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ $HADOOP_HOME/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output &#8216;hadoop&#8217;</div></blockquote>
+<p>4. View the output files on HDFS:
+.. code-block:: bash</p>
+<blockquote>
+<div><blockquote>
+<div>$ $HADOOP_HOME/bin/hdfs dfs -cat output/*</div></blockquote>
+<p>Or copy the output files to the local filesystem:</p>
+</div></blockquote>
+</div>
+<div class="section" id="stop-daemons">
+<h2>Stop daemons<a class="headerlink" href="#stop-daemons" title="Permalink to this headline">¶</a></h2>
+<p>If you are done, you can stop all daemons by:
+.. code-block:: bash</p>
+<blockquote>
+<div>$ $HADOOP_HOME/sbin/stop-dfs.sh
+$ $HADOOP_HOME/sbin/stop-yarn.sh</div></blockquote>
+</div>
 </div>
 
 
