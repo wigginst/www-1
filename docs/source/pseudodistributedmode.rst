@@ -11,12 +11,14 @@ Firstly, check with the following command
     $ ssh localhost
 
 If you cannot ssh to the localhost without a passphrase, use the following commands to setup passphraseless ssh:
+
 .. code-block:: bash
 
-    cd ~/.ssh
-    ssh-keygen -t rsa
+    $ cd ~/.ssh
+    $ ssh-keygen -t rsa
     (hit enter to all the options)
-    cat id_rsa.pub >> authorized_keys
+    $ cat id_rsa.pub >> authorized_keys
+
 
 Configuration
 ---------------------------
