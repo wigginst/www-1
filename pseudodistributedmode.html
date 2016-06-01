@@ -240,87 +240,66 @@ $ cat id_rsa.pub &gt;&gt; authorized_keys
 <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>~/software/jdk1.8.0_91#The java implementation to use.
 </pre></div>
 </div>
-<p>$HADOOP_HOME/etc/hadoop/core-site.xml
-.. code-block:: xml</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&lt;configuration&gt;</dt>
-<dd><dl class="first docutils">
-<dt>&lt;property&gt;</dt>
-<dd><blockquote class="first">
-<div>&lt;name&gt;fs.default.name&lt;/name&gt;
-&lt;value&gt;hdfs://localhost:9010&lt;/value&gt;</div></blockquote>
-<p class="last">&lt;/property&gt;</p>
-</dd>
-<dt>&lt;property&gt;</dt>
-<dd>&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
-&lt;value&gt;$HADOOP_HOME/tmp&lt;/value&gt;
-&lt;description&gt;A base for other temporary directories.&lt;/description&gt;</dd>
-</dl>
-<p class="last">&lt;/property&gt;</p>
-</dd>
-</dl>
-<p>&lt;/configuration&gt;</p>
-</div></blockquote>
-<p>$HADOOP_HOME/etc/hadoop/hdfs-site.xml
-.. code-block:: xml</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&lt;configuration&gt;</dt>
-<dd><dl class="first docutils">
-<dt>&lt;property&gt;</dt>
-<dd>&lt;name&gt;dfs.replication&lt;/name&gt;
-&lt;value&gt;1&lt;/value&gt;</dd>
-</dl>
-<p class="last">&lt;/property&gt;</p>
-</dd>
-</dl>
-<p>&lt;/configuration&gt;</p>
-</div></blockquote>
-<p>$HADOOP_HOME/etc/hadoop/mapred-site.xml
-.. code-block:: xml</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&lt;configuration&gt;</dt>
-<dd><dl class="first docutils">
-<dt>&lt;property&gt;</dt>
-<dd>&lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-&lt;value&gt;yarn&lt;/value&gt;</dd>
-</dl>
-<p class="last">&lt;/property&gt;</p>
-</dd>
-</dl>
-<p>&lt;/configuration&gt;</p>
-</div></blockquote>
-<p>$HADOOP_HOME/etc/hadoop/yarn-site.xml
-.. code-block:: xml</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&lt;configuration&gt;</dt>
-<dd><dl class="first docutils">
-<dt>&lt;property&gt;</dt>
-<dd>&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
-&lt;value&gt;localhost&lt;/value&gt;</dd>
-</dl>
-<p>&lt;/property&gt;</p>
-<dl class="docutils">
-<dt>&lt;property&gt;</dt>
-<dd>&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</dd>
-</dl>
-<p class="last">&lt;/property&gt;</p>
-</dd>
-</dl>
-<p>&lt;/configuration&gt;</p>
-</div></blockquote>
+<p>$HADOOP_HOME/etc/hadoop/core-site.xml</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>fs.default.name<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>hdfs://localhost:9010<span class="nt">&lt;/value&gt;</span>
+     <span class="nt">&lt;/property&gt;</span>
+
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>hadoop.tmp.dir<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>$HADOOP_HOME/tmp<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;description&gt;</span>A base for other temporary directories.<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>$HADOOP_HOME/etc/hadoop/hdfs-site.xml</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>$HADOOP_HOME/etc/hadoop/mapred-site.xml</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>mapreduce.framework.name<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>yarn<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>$HADOOP_HOME/etc/hadoop/yarn-site.xml</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>yarn.resourcemanager.hostname<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>localhost<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>yarn.nodemanager.aux-services<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>mapreduce_shuffle<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="start-daemons">
 <h2>Start Daemons<a class="headerlink" href="#start-daemons" title="Permalink to this headline">¶</a></h2>
-<p>1. Format the file system
-.. code-block:: bash</p>
-<blockquote>
-<div>$ $HADOOP_HOME/bin/hdfs namenode -format</div></blockquote>
+<ol class="arabic simple">
+<li>Format the file system</li>
+</ol>
 <p>If you can see information like this, the format process should be successful.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>xx/xx/xx xx:xx:xx INFO util.ExitUtil: Exiting with status 0
+xx/xx/xx xx:xx:xx INFO namenode.NameNode: SHUTDOWN_MSG:
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at xxx.xxx.xxx.xxx
+</pre></div>
+</div>
 <ol class="arabic simple" start="2">
 <li>Launch NameNode daemon and DataNode daemon</li>
 </ol>
@@ -332,27 +311,18 @@ $ cat id_rsa.pub &gt;&gt; authorized_keys
 <li>Browse the web interface for the NameNode. By default it&#8217;s at: <a class="reference external" href="http://localhost:50070">http://localhost:50070</a></li>
 <li>Start ResourceManager daemon and NodeManager Daemon</li>
 </ol>
-<p>6. Check if the daemons are started sucessfully:
-.. code-block:: bash</p>
-<blockquote>
-<div>$ jps
-xxxxx NameNode
-xxxxx SecondaryNameNode
-xxxxx DataNode
-xxxxx NodeManager
-xxxxx Jps
-xxxxx ResourceManager</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Check if the daemons are started sucessfully:</li>
+</ol>
 <ol class="arabic simple" start="7">
 <li>Browse the web interface for the ResourceManager. By default it&#8217;s at <a class="reference external" href="http://localhost:8088">http://localhost:8088</a></li>
 </ol>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>1. Make the Hadoop Didtributed File System (HDFS) directories
-.. code-block:: bash</p>
-<blockquote>
-<div>$ $HADOOP_HOME/bin/hdfs dfs -mkdir -p .
-$ $HADOOP_HOME/bin/hdfs dfs -mkdir input</div></blockquote>
+<ol class="arabic simple">
+<li>Make the Hadoop Didtributed File System (HDFS) directories</li>
+</ol>
 <ol class="arabic simple" start="2">
 <li>Copy the input files into HDFS. In this example, we use files in $HADOOP_HOME/etc/hadoop/ directory as input files</li>
 </ol>
