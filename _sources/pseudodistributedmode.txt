@@ -97,6 +97,7 @@ Start Daemons
 1. Format the file system
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/bin/hdfs namenode -format
 
 
@@ -113,14 +114,16 @@ If you can see information like this, the format process should be successful.
 2. Launch NameNode daemon and DataNode daemon
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/sbin/start-dfs.sh
 
 
 The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)
 
-3. Check if the daemons are started sucessfully
+3. Check if the daemons are started successfully
 
 .. code-block:: bash
+
     $ jps
     xxxxx NameNode
     xxxxx SecondaryNameNode
@@ -133,12 +136,14 @@ The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)
 5. Start ResourceManager daemon and NodeManager Daemon
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/sbin/start-yarn.sh
 
 
 6. Check if the daemons are started sucessfully:
 
 .. code-block:: bash
+
     $ jps
     xxxxx NameNode
     xxxxx SecondaryNameNode
@@ -156,6 +161,7 @@ Example
 1. Make the Hadoop Didtributed File System (HDFS) directories
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/bin/hdfs dfs -mkdir -p .
     $ $HADOOP_HOME/bin/hdfs dfs -mkdir input
 
@@ -163,24 +169,28 @@ Example
 2. Copy the input files into HDFS. In this example, we use files in $HADOOP_HOME/etc/hadoop/ directory as input files
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/bin/hdfs dfs -put $HADOOP_HOME/etc/hadoop/* input
 
 
 3. Run the "grep" example provided
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output 'hadoop'
 
 
 4. View the output files on HDFS
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/bin/hdfs dfs -cat output/*
 
 
    Or copy the output files to the local filesystem
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/bin/hdfs dfs -get output output
     $ cat output/*
 
@@ -190,6 +200,7 @@ Stop daemons
 If you are done, you can stop all daemons by
 
 .. code-block:: bash
+
     $ $HADOOP_HOME/sbin/stop-dfs.sh
     $ $HADOOP_HOME/sbin/stop-yarn.sh
 

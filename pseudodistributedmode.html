@@ -293,6 +293,9 @@ $ cat id_rsa.pub &gt;&gt; authorized_keys
 <ol class="arabic simple">
 <li>Format the file system</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/bin/hdfs namenode -format
+</pre></div>
+</div>
 <p>If you can see information like this, the format process should be successful.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>xx/xx/xx xx:xx:xx INFO util.ExitUtil: Exiting with status 0
 xx/xx/xx xx:xx:xx INFO namenode.NameNode: SHUTDOWN_MSG:
@@ -303,17 +306,39 @@ SHUTDOWN_MSG: Shutting down NameNode at xxx.xxx.xxx.xxx
 <ol class="arabic simple" start="2">
 <li>Launch NameNode daemon and DataNode daemon</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/sbin/start-dfs.sh
+</pre></div>
+</div>
 <p>The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)</p>
 <ol class="arabic simple" start="3">
-<li>Check if the daemons are started sucessfully</li>
+<li>Check if the daemons are started successfully</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ jps
+xxxxx NameNode
+xxxxx SecondaryNameNode
+xxxxx DataNode
+xxxxx Jps
+</pre></div>
+</div>
 <ol class="arabic simple" start="4">
 <li>Browse the web interface for the NameNode. By default it&#8217;s at: <a class="reference external" href="http://localhost:50070">http://localhost:50070</a></li>
 <li>Start ResourceManager daemon and NodeManager Daemon</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/sbin/start-yarn.sh
+</pre></div>
+</div>
 <ol class="arabic simple" start="6">
 <li>Check if the daemons are started sucessfully:</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ jps
+xxxxx NameNode
+xxxxx SecondaryNameNode
+xxxxx DataNode
+xxxxx NodeManager
+xxxxx Jps
+xxxxx ResourceManager
+</pre></div>
+</div>
 <ol class="arabic simple" start="7">
 <li>Browse the web interface for the ResourceManager. By default it&#8217;s at <a class="reference external" href="http://localhost:8088">http://localhost:8088</a></li>
 </ol>
@@ -323,19 +348,43 @@ SHUTDOWN_MSG: Shutting down NameNode at xxx.xxx.xxx.xxx
 <ol class="arabic simple">
 <li>Make the Hadoop Didtributed File System (HDFS) directories</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -mkdir -p .
+$ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -mkdir input
+</pre></div>
+</div>
 <ol class="arabic simple" start="2">
 <li>Copy the input files into HDFS. In this example, we use files in $HADOOP_HOME/etc/hadoop/ directory as input files</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -put <span class="nv">$HADOOP_HOME</span>/etc/hadoop/* input
+</pre></div>
+</div>
 <ol class="arabic simple" start="3">
 <li>Run the &#8220;grep&#8221; example provided</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output <span class="s1">&#39;hadoop&#39;</span>
+</pre></div>
+</div>
 <ol class="arabic simple" start="4">
 <li>View the output files on HDFS</li>
 </ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span> $ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -cat output/*
+
+
+Or copy the output files to the <span class="nb">local</span> filesystem
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -get output output
+$ cat output/*
+</pre></div>
+</div>
 </div>
 <div class="section" id="stop-daemons">
 <h2>Stop daemons<a class="headerlink" href="#stop-daemons" title="Permalink to this headline">¶</a></h2>
 <p>If you are done, you can stop all daemons by</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/sbin/stop-dfs.sh
+$ <span class="nv">$HADOOP_HOME</span>/sbin/stop-yarn.sh
+</pre></div>
+</div>
 </div>
 </div>
 
