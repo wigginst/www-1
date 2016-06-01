@@ -367,12 +367,10 @@ $ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -mkdir input
 <ol class="arabic simple" start="4">
 <li>View the output files on HDFS</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span> $ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -cat output/*
-
-
-Or copy the output files to the <span class="nb">local</span> filesystem
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -cat output/*
 </pre></div>
 </div>
+<p>Or copy the output files to the local filesystem</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">$HADOOP_HOME</span>/bin/hdfs dfs -get output output
 $ cat output/*
 </pre></div>
