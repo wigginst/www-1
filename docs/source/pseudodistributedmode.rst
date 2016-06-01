@@ -187,7 +187,7 @@ Example
     $ $HADOOP_HOME/bin/hdfs dfs -cat output/*
 
 
-   Or copy the output files to the local filesystem
+Or copy the output files to the local filesystem
 
 .. code-block:: bash
 
