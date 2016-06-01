@@ -33,6 +33,7 @@ In $HADOOP_HOME/etc/hadoop/hadoop-env.sh, replace ${JAVA_HOME} with your own Jav
     export JAVA_HOME=~/software/jdk1.8.0_91#The java implementation to use.
 
 $HADOOP_HOME/etc/hadoop/core-site.xml
+
 .. code-block:: xml
 
     <configuration>
@@ -48,7 +49,9 @@ $HADOOP_HOME/etc/hadoop/core-site.xml
         </property>
     </configuration>
 
+
 $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+
 .. code-block:: xml
 
     <configuration>
@@ -58,7 +61,9 @@ $HADOOP_HOME/etc/hadoop/hdfs-site.xml
         </property>
     </configuration>
 
+
 $HADOOP_HOME/etc/hadoop/mapred-site.xml
+
 .. code-block:: xml
 
     <configuration>
@@ -68,7 +73,9 @@ $HADOOP_HOME/etc/hadoop/mapred-site.xml
         </property>
     </configuration>
 
+
 $HADOOP_HOME/etc/hadoop/yarn-site.xml
+
 .. code-block:: xml
 
     <configuration>
@@ -83,25 +90,31 @@ $HADOOP_HOME/etc/hadoop/yarn-site.xml
         </property>
     </configuration>
 
+
 Start Daemons
 ---------------------------
 
 1. Format the file system
+
 .. code-block:: bash
-    \$ $HADOOP_HOME/bin/hdfs namenode -format
+    $ $HADOOP_HOME/bin/hdfs namenode -format
+
 
 If you can see information like this, the format process should be successful.
 
 .. code-block:: bash
+
     xx/xx/xx xx:xx:xx INFO util.ExitUtil: Exiting with status 0
     xx/xx/xx xx:xx:xx INFO namenode.NameNode: SHUTDOWN_MSG:
     /************************************************************
     SHUTDOWN_MSG: Shutting down NameNode at xxx.xxx.xxx.xxx
 
+
 2. Launch NameNode daemon and DataNode daemon
 
 .. code-block:: bash
     $ $HADOOP_HOME/sbin/start-dfs.sh
+
 
 The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)
 
@@ -114,6 +127,7 @@ The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)
     xxxxx DataNode
     xxxxx Jps
 
+
 4. Browse the web interface for the NameNode. By default it's at: http://localhost:50070
 
 5. Start ResourceManager daemon and NodeManager Daemon
@@ -121,7 +135,9 @@ The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)
 .. code-block:: bash
     $ $HADOOP_HOME/sbin/start-yarn.sh
 
+
 6. Check if the daemons are started sucessfully:
+
 .. code-block:: bash
     $ jps
     xxxxx NameNode
@@ -131,36 +147,43 @@ The log is in the $HADOOP_LOG_DIR directory (defaults: $HADOOP_HOME/logs)
     xxxxx Jps
     xxxxx ResourceManager
 
+
 7. Browse the web interface for the ResourceManager. By default it's at http://localhost:8088
 
 Example
 ---------------------------
 
 1. Make the Hadoop Didtributed File System (HDFS) directories
+
 .. code-block:: bash
     $ $HADOOP_HOME/bin/hdfs dfs -mkdir -p .
     $ $HADOOP_HOME/bin/hdfs dfs -mkdir input
+
 
 2. Copy the input files into HDFS. In this example, we use files in $HADOOP_HOME/etc/hadoop/ directory as input files
 
 .. code-block:: bash
     $ $HADOOP_HOME/bin/hdfs dfs -put $HADOOP_HOME/etc/hadoop/* input
 
+
 3. Run the "grep" example provided
 
 .. code-block:: bash
     $ $HADOOP_HOME/bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output 'hadoop'
+
 
 4. View the output files on HDFS
 
 .. code-block:: bash
     $ $HADOOP_HOME/bin/hdfs dfs -cat output/*
 
+
    Or copy the output files to the local filesystem
 
 .. code-block:: bash
     $ $HADOOP_HOME/bin/hdfs dfs -get output output
     $ cat output/*
+
 
 Stop daemons
 ---------------------------
@@ -169,3 +192,4 @@ If you are done, you can stop all daemons by
 .. code-block:: bash
     $ $HADOOP_HOME/sbin/stop-dfs.sh
     $ $HADOOP_HOME/sbin/stop-yarn.sh
+
