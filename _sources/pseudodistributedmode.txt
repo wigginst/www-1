@@ -1,5 +1,5 @@
 Pseudo-distributed Mode
-=============
+=======================
 
 Setup passphraseless ssh
 ---------------------------
