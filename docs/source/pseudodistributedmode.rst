@@ -86,7 +86,7 @@ Start Daemons
 
 1. Format the file system
 .. code-block:: bash
-    $ $HADOOP_HOME/bin/hdfs namenode -format
+    \$ $HADOOP_HOME/bin/hdfs namenode -format
 
 If you can see information like this, the format process should be successful.
 
