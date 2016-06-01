@@ -224,13 +224,13 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ ssh localhost
 </pre></div>
 </div>
-<p>If you cannot ssh to the localhost without a passphrase, use the following commands to setup passphraseless ssh:
-.. code-block:: bash</p>
-<blockquote>
-<div>cd ~/.ssh
-ssh-keygen -t rsa
-(hit enter to all the options)
-cat id_rsa.pub &gt;&gt; authorized_keys</div></blockquote>
+<p>If you cannot ssh to the localhost without a passphrase, use the following commands to setup passphraseless ssh:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/.ssh
+$ ssh-keygen -t rsa
+<span class="o">(</span>hit enter to all the options<span class="o">)</span>
+$ cat id_rsa.pub &gt;&gt; authorized_keys
+</pre></div>
+</div>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
