@@ -232,12 +232,22 @@
 <div class="section" id="compile-the-code">
 <h2>Compile the Code<a class="headerlink" href="#compile-the-code" title="Permalink to this headline">¶</a></h2>
 <p>The code is available at <a class="reference external" href="https://github.com/ADMIcloud/examples">https://github.com/ADMIcloud/examples</a>. Download the code by using git clone command or by clicking the Download Zip buttion. The go to the HadoopKmeans directory and compile the code.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> HadoopKmeans
+$ ant
+</pre></div>
+</div>
 </div>
 <div class="section" id="run-the-code">
 <h2>Run the Code<a class="headerlink" href="#run-the-code" title="Permalink to this headline">¶</a></h2>
 <p>The usage is</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hadoop jar jar/hadoopkmeans.jar  &lt;numOfDataPoints&gt; &lt;num of Centroids&gt; &lt;number of map tasks&gt; &lt;number of iteration&gt; &lt;localInputDir&gt;
+</pre></div>
+</div>
 <p>Here &lt;localInputDir&gt; is a directory where you want to store the data point files generated at the beginning of the code.</p>
 <p>For example</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hadoop jar jar/hadoopkmeans.jar  <span class="m">100</span> <span class="m">10</span> <span class="m">2</span> <span class="m">5</span> input
+</pre></div>
+</div>
 <p>It wil firstly generate 100 data points, each one is a 20 dimension vector. The data will be stored in &lt;localInputDir&gt; directory. Then generate 10 centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.</p>
 </div>
 <div class="section" id="view-the-results">
