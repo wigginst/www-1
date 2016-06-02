@@ -11,15 +11,6 @@ Denote:
 - D is the dimension of centroids
 - Vi refers to the ith data point(vector)
 - Cj refers to the jth centroid
-- Dij refers to the Euclidian distance between Vi and Cj
-- The structure of Ctable is like:
-    C1	S1	K1
-    C2	S2	K2
-    C3	S3	K3
-    ...
-- Si is the sum of all data points(vectors) which are assigned to Ci
-- Ki is the number of data points(vectors) which are assigned to Ci
-*/
 
 ------------------
 The Main Method
@@ -40,6 +31,7 @@ The Main Method
 ------------------
 The Mapper
 ------------------
+
 .. code-block:: java
 
     load centroids
@@ -52,6 +44,7 @@ The Mapper
 ------------------
 The Reducer
 ------------------
+
 .. code-block:: java
 
     #The key is an ID of a centroid, the value list is a list of <Vi, 1>
