@@ -31,7 +31,7 @@ Reducer:
 
 .. code-block:: java
 
-    void reducer(word, list(count)) {
+    void reduce(word, list(count)) {
         output(word, sum(count));
     }
 
