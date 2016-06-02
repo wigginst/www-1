@@ -17,7 +17,7 @@ The Reducer
 
 Compile the Code
 ------------------
-The code is available at https://github.com/ADMIcloud/examples. Download the code by using git clone command or by clicking the Download Zip buttion. The go to the HadoopKmeans directory and compile the code.
+The code is available at https://github.com/ADMIcloud/examples. Download the code by using git clone command or by clicking the Download Zip button. The go to the HadoopKmeans directory and compile the code.
 
 .. code-block:: bash
 
@@ -42,7 +42,7 @@ For example
 
     $ hadoop jar jar/hadoopkmeans.jar  100 10 2 5 input
 
-It wil firstly generate 100 data points, each one is a 20 dimension vector. The data will be stored in <localInputDir> directory. Then generate 10 centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.
+It wil firstly generate 100 data points, each one is a 20 dimension vector. The data will be stored in <localInputDir> directory. Then the data will be copied to HDFS. It then generate 10 centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.
 
 
 View the Results
