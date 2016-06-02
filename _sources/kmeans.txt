@@ -6,11 +6,13 @@ This section describes how to implement K-means algorithm using Hadoop.
 Pseudo Code
 ------------------
 Denote:
+
 - N is the number of data points
 - M is the number of centroids
 - D is the dimension of centroids
 - Vi refers to the ith data point(vector)
 - Cj refers to the jth centroid
+
 
 ------------------
 The Main Method
