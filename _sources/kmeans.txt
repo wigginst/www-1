@@ -70,6 +70,40 @@ The Reducer
 Compile the Code
 ------------------
 The code is available at https://github.com/ADMIcloud/examples. Download the code by using git clone command or by clicking the Download Zip button. The go to the HadoopKmeans directory and compile the code.
+In the build.xml, change "PATH-TO-YOUR-HADOOP-HOME" to your Hadoop Home directory.
+
+.. code-block:: xml
+
+    <project name="hadoopCompile" default="jar" basedir=".">
+        <target name="init">
+	        <property name="sourceDir" value="."/>
+	        <property name="outputDir" value="classes"/>
+	        <property name="buildDir" value="jar"/>
+	        <property name="lib.dir" value="PATH-TO-YOUR-HADOOP-HOME"/>
+	        <path id="classpath">
+		        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+	        </path>
+        </target>
+        <target name="clean" depends="init">
+	        <delete dir="${outputDir}"/>
+	        <delete dir="${buildDir}"/>
+        </target>
+        <target name="prepare" depends="clean">
+	        <mkdir dir="${outputDir}"/>
+	        <mkdir dir="${buildDir}"/>
+        </target>
+        <target name="compile" depends="prepare">
+	        <javac srcdir="${sourceDir}" destdir="${outputDir}" classpathref="classpath"/>
+        </target>
+        <target name="jar" depends="compile">
+	        <jar destfile="${buildDir}/hadoopkmeans.jar" basedir="${outputDir}">
+		        <manifest>
+			        <attribute name="Main-Class" value="cgl.mr.hadoop.kmeans.IterativeMapReduce"/>
+		        </manifest>
+	        </jar>
+        </target>
+    </project>
+
 
 .. code-block:: bash
 
