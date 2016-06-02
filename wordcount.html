@@ -230,6 +230,24 @@
 <li>Reducer</li>
 </ol>
 </div></blockquote>
+<p>An example of the Hadoop Word Count is as follows:</p>
+<a class="reference internal image-reference" href="_images/wordcount.png"><img alt="word count show case" class="align-center" src="_images/wordcount.png" style="width: 520px; height: 300px;" /></a>
+<p>Mapper:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">map</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">foreach</span> <span class="n">word</span> <span class="n">in</span> <span class="n">text</span><span class="o">.</span><span class="na">split</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">output</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The map function emits each word plus an associated count of occurrences (just a &#8220;1&#8221; is recorded in this pseudo-code). The input document is tokenized, where key is document name and value is document contents.</p>
+<p>Reducer:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">reducer</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">list</span><span class="o">(</span><span class="n">count</span><span class="o">))</span> <span class="o">{</span>
+    <span class="n">output</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">sum</span><span class="o">(</span><span class="n">count</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The reduce function sums together all counts emitted for a particular word.</p>
 <div class="section" id="writing-the-mapper-class">
 <h2>Writing the Mapper Class<a class="headerlink" href="#writing-the-mapper-class" title="Permalink to this headline">¶</a></h2>
 <p>The WordCountMapper class is created by extending the Mapper class and the map function is implemented by overriding the map method in the Mapper class. The mapper functions takes a key-value pair as an input and outputs a key-values pair as an output ( The output is given through the context object ). The key value pair that the map function takes as an input and the key value pair that is given as an output need not be of the same type.</p>

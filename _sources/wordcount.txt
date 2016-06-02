@@ -6,6 +6,37 @@ Word Count is a simple and easy to understand algorithm which can be implemented
     2. Mapper
     3. Reducer
 
+An example of the Hadoop Word Count is as follows:
+
+.. image:: images/figures/wordcount.png
+   :height: 300px
+   :width: 520px
+   :alt: word count show case
+   :align: center
+
+Mapper:
+
+.. code-block:: java
+	
+    void map(file, text) {
+    	foreach word in text.split() {
+        	output(word, 1);
+    	}
+    }
+
+
+The map function emits each word plus an associated count of occurrences (just a "1" is recorded in this pseudo-code). The input document is tokenized, where key is document name and value is document contents.
+
+Reducer:
+
+.. code-block:: java
+
+    void reducer(word, list(count)) {
+        output(word, sum(count));
+    }
+
+The reduce function sums together all counts emitted for a particular word.
+
 Writing the Mapper Class
 -----------------------
 The WordCountMapper class is created by extending the Mapper class and the map function is implemented by overriding the map method in the Mapper class. The mapper functions takes a key-value pair as an input and outputs a key-values pair as an output ( The output is given through the context object ). The key value pair that the map function takes as an input and the key value pair that is given as an output need not be of the same type.
