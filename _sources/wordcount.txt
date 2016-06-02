@@ -20,7 +20,7 @@ Mapper:
 	
     void map(file, text) {
     	foreach word in text.split() {
-        	output(word, 1);
+            output(word, 1);
     	}
     }
 
