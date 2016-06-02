@@ -3,16 +3,73 @@ K-Means
 
 This section describes how to implement K-means algorithm using Hadoop.
 
+Pseudo Code
+------------------
+Denote:
+- N is the number of data points
+- M is the number of centroids
+- D is the dimension of centroids
+- Vi refers to the ith data point(vector)
+- Cj refers to the jth centroid
+- Dij refers to the Euclidian distance between Vi and Cj
+- The structure of Ctable is like:
+    C1	S1	K1
+    C2	S2	K2
+    C3	S3	K3
+    ...
+- Si is the sum of all data points(vectors) which are assigned to Ci
+- Ki is the number of data points(vectors) which are assigned to Ci
+*/
+
+------------------
 The Main Method
 ------------------
 
+.. code-block:: java
 
+    generate N data points (D dimensions)
+    write to HDFS
+    generate M centroids
+    write to HDFS
+    for iterations{
+        configure job
+        launch job
+    }
+
+
+------------------
 The Mapper
 ------------------
+.. code-block:: java
+
+    load centroids
+
+    #The value of the input key-value pair is a data point Vi
+    find the nearest centroid Cj for the data point Vi
+    Context.write(j, <Vi, 1>)
 
 
+------------------
 The Reducer
 ------------------
+.. code-block:: java
+
+    #The key is an ID of a centroid, the value list is a list of <Vi, 1>
+    newCentroid = a new D dimensional vector
+    count = 0
+    for each pair <Vi, 1> in the value list{
+        for k in 0 to (D-1) {
+            newCentroid[k] += Vi[k]
+        }
+        count += 1
+    }
+
+    for k in 0 to (D-1) {
+            newCentroid[k] /= count
+    }
+
+    Context.write(key, newCentroid)
+
 
 
 Compile the Code
@@ -42,7 +99,7 @@ For example
 
     $ hadoop jar jar/hadoopkmeans.jar  100 10 2 5 input
 
-It wil firstly generate 100 data points, each one is a 20 dimension vector. The data will be stored in <localInputDir> directory. Then the data will be copied to HDFS. It then generate 10 centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.
+It wil firstly generate 100 data points, each one is a 20 dimensional vector. The data will be stored in <localInputDir> directory. Then the data will be copied to HDFS. It then generate 10 centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.
 
 
 View the Results
