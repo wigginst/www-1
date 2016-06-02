@@ -242,7 +242,7 @@
 </div>
 <p>The map function emits each word plus an associated count of occurrences (just a &#8220;1&#8221; is recorded in this pseudo-code). The input document is tokenized, where key is document name and value is document contents.</p>
 <p>Reducer:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">reducer</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">list</span><span class="o">(</span><span class="n">count</span><span class="o">))</span> <span class="o">{</span>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">reduce</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">list</span><span class="o">(</span><span class="n">count</span><span class="o">))</span> <span class="o">{</span>
     <span class="n">output</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">sum</span><span class="o">(</span><span class="n">count</span><span class="o">));</span>
 <span class="o">}</span>
 </pre></div>
