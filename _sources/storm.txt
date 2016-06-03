@@ -1,7 +1,15 @@
 Apache Storm Word Count
 =======================
 
-Apache Storm is a distributed stream processing engine.
+Apache Storm
+---------------
+
+.. figure:: http://storm.apache.org/images/logo.png
+   :alt: Storm
+   :width: 400
+
+Apache Storm is a distributed stream processing engine.. Storm creates a directed acyclic graph (DAG) which consists of "sprouts" and "bolts" graph verticies which handle the streaming and processing of data. As Storm processes continuing streaming data, it is configured to run infinietely until explicitly terminated.
+
 
 These are the things we will look at in this Tutorial.
 
