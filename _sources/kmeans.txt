@@ -14,9 +14,9 @@ Denote:
 - Cj refers to the jth centroid
 
 
-----------------
+------------------
 The Main Method
-----------------
+------------------
 
 .. code-block:: java
 
