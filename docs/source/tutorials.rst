@@ -2,6 +2,12 @@ Tutorials
 =========
 
 
+Prerequisite: Amazon EC2
+------------------------
+
+Learn how to log into Amazon EC2 instances to access software for the workshop.
+
+
 Ex 1: Wordcount on Hadoop
 ---------
 
@@ -25,6 +31,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
+   amazon
    wordcount
    kmeans
    storm
