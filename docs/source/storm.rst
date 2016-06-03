@@ -1,5 +1,5 @@
 Apache Storm Word Count
-================
+=======================
 
 Apache Storm is a distributed stream processing engine.
 
@@ -16,7 +16,7 @@ wget http://mirrors.ibiblio.org/apache/storm/apache-storm-0.10.1/apache-storm-0.
 tar -xvf apache-storm-0.10.1.tar.gz
 
 Download and start ZooKeeper
-------------------
+----------------------------
 
 wget http://apache.mirrors.pair.com/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz
 
