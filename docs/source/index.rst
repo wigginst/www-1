@@ -23,10 +23,9 @@ Cloud Computing potentially has the capability to host both parallel and distrib
 
 ----------------------------------------------------------------------
 
-Contents:
-
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    schedule
    members
@@ -34,6 +33,4 @@ Contents:
    tutorials
    software
 
-
-   
 
