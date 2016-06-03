@@ -1,5 +1,5 @@
 Schedule
-===================
+========
 
 Workshop leaders will  assist  participants  in transforming an existing course
 into a modular course using cloud computing resources available at
