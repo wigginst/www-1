@@ -9,18 +9,18 @@ Learn how to log into Amazon EC2 instances to access software for the workshop.
 
 
 Ex 1: Wordcount on Hadoop
----------
+-------------------------
 
 Wordcount using MapReduce on Hadoop. 
 
 Ex 2: K-Means clustering on Hadoop
----------
+----------------------------------
 
 Exploring and evaluating the K-Means clustering algorithm on Hadoop.
 
 
 Ex 3: WordCount on Storm 
----------
+------------------------
 
 Utilize a streaming wordcount system using the Storm streaming tool.
 

@@ -20,13 +20,11 @@ The Main Method
 
 .. code-block:: java
 
-    generate N data points (D dimensions)
-    write to HDFS
-    generate M centroids
-    write to HDFS
+    generate N data points (D dimensions), write to HDFS
+    generate M centroids, write to HDFS
     for iterations{
-        configure job
-        launch job
+        configure a job
+        launch the job
     }
 
 
@@ -63,7 +61,7 @@ The Reducer
             newCentroid[k] /= count
     }
 
-    Context.write(key, newCentroid)
+    output newCentroid to HDFS
 
 
 
@@ -98,7 +96,7 @@ In the build.xml, change "PATH-TO-YOUR-HADOOP-HOME" to your Hadoop Home director
         <target name="jar" depends="compile">
 	        <jar destfile="${buildDir}/hadoopkmeans.jar" basedir="${outputDir}">
 		        <manifest>
-			        <attribute name="Main-Class" value="cgl.mr.hadoop.kmeans.IterativeMapReduce"/>
+			        <attribute name="Main-Class" value="admicloud.kmeans.mapreduce.KmeansMain"/>
 		        </manifest>
 	        </jar>
         </target>
@@ -118,17 +116,15 @@ The usage is
 
 .. code-block:: bash
 
-    $ hadoop jar jar/hadoopkmeans.jar  <numOfDataPoints> <num of Centroids> <number of map tasks> <number of iteration> <localInputDir>
-
-Here <localInputDir> is a directory where you want to store the data point files generated at the beginning of the code.
+    $ hadoop jar jar/hadoopkmeans.jar <num Of Data Points> <size of a vector> <num of Centroids> <number of map tasks> <number of iteration>
 
 For example
 
 .. code-block:: bash
 
-    $ hadoop jar jar/hadoopkmeans.jar  100 10 2 5 input
+    $ hadoop jar jar/hadoopkmeans.jar 100 3 10 2 3
 
-It wil firstly generate 100 data points, each one is a 20 dimensional vector. The data will be stored in <localInputDir> directory. Then the data will be copied to HDFS. It then generate 10 centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.
+It wil firstly generate 100 data points, each one is a 3-D vector. The data will be saved to HDFS. It then generate 10 initial centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.
 
 
 View the Results
@@ -136,5 +132,5 @@ View the Results
 
 .. code-block:: bash
 
-    $ hdfs dfs -ls test-my-k
+    $ hdfs dfs -ls -R kmeans
 

@@ -10,7 +10,7 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/sandstone/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/sandstone/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="ADMICloud  documentation" href="index.html" />
     <link rel="up" title="Tutorials" href="tutorials.html" />
@@ -125,7 +125,7 @@
 </form>
         </div>
       </div>
-    <div class="col-md-9">
+    <div class="col-md-9 content">
       
   <div class="section" id="k-means">
 <h1>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h1>
@@ -142,13 +142,11 @@
 </ul>
 <div class="section" id="the-main-method">
 <h3>The Main Method<a class="headerlink" href="#the-main-method" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">generate</span> <span class="n">N</span> <span class="n">data</span> <span class="nf">points</span> <span class="o">(</span><span class="n">D</span> <span class="n">dimensions</span><span class="o">)</span>
-<span class="n">write</span> <span class="n">to</span> <span class="n">HDFS</span>
-<span class="n">generate</span> <span class="n">M</span> <span class="n">centroids</span>
-<span class="n">write</span> <span class="n">to</span> <span class="n">HDFS</span>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">generate</span> <span class="n">N</span> <span class="n">data</span> <span class="nf">points</span> <span class="o">(</span><span class="n">D</span> <span class="n">dimensions</span><span class="o">),</span> <span class="n">write</span> <span class="n">to</span> <span class="n">HDFS</span>
+<span class="n">generate</span> <span class="n">M</span> <span class="n">centroids</span><span class="o">,</span> <span class="n">write</span> <span class="n">to</span> <span class="n">HDFS</span>
 <span class="k">for</span> <span class="n">iterations</span><span class="o">{</span>
-    <span class="n">configure</span> <span class="n">job</span>
-    <span class="n">launch</span> <span class="n">job</span>
+    <span class="n">configure</span> <span class="n">a</span> <span class="n">job</span>
+    <span class="n">launch</span> <span class="n">the</span> <span class="n">job</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -179,7 +177,7 @@ for k in 0 to (D-1) {
         newCentroid[k] /= count
 }
 
-Context.write(key, newCentroid)
+output newCentroid to HDFS
 </pre></div>
 </div>
 </div>
@@ -212,7 +210,7 @@ In the build.xml, change &#8220;PATH-TO-YOUR-HADOOP-HOME&#8221; to your Hadoop H
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;jar&quot;</span> <span class="na">depends=</span><span class="s">&quot;compile&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;jar</span> <span class="na">destfile=</span><span class="s">&quot;${buildDir}/hadoopkmeans.jar&quot;</span> <span class="na">basedir=</span><span class="s">&quot;${outputDir}&quot;</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;manifest&gt;</span>
-                            <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;Main-Class&quot;</span> <span class="na">value=</span><span class="s">&quot;cgl.mr.hadoop.kmeans.IterativeMapReduce&quot;</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;Main-Class&quot;</span> <span class="na">value=</span><span class="s">&quot;admicloud.kmeans.mapreduce.KmeansMain&quot;</span><span class="nt">/&gt;</span>
                     <span class="nt">&lt;/manifest&gt;</span>
             <span class="nt">&lt;/jar&gt;</span>
     <span class="nt">&lt;/target&gt;</span>
@@ -227,19 +225,18 @@ $ ant
 <div class="section" id="run-the-code">
 <h2>Run the Code<a class="headerlink" href="#run-the-code" title="Permalink to this headline">¶</a></h2>
 <p>The usage is</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hadoop jar jar/hadoopkmeans.jar  &lt;numOfDataPoints&gt; &lt;num of Centroids&gt; &lt;number of map tasks&gt; &lt;number of iteration&gt; &lt;localInputDir&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hadoop jar jar/hadoopkmeans.jar &lt;num Of Data Points&gt; &lt;size of a vector&gt; &lt;num of Centroids&gt; &lt;number of map tasks&gt; &lt;number of iteration&gt;
 </pre></div>
 </div>
-<p>Here &lt;localInputDir&gt; is a directory where you want to store the data point files generated at the beginning of the code.</p>
 <p>For example</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hadoop jar jar/hadoopkmeans.jar  <span class="m">100</span> <span class="m">10</span> <span class="m">2</span> <span class="m">5</span> input
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hadoop jar jar/hadoopkmeans.jar <span class="m">100</span> <span class="m">3</span> <span class="m">10</span> <span class="m">2</span> 3
 </pre></div>
 </div>
-<p>It wil firstly generate 100 data points, each one is a 20 dimensional vector. The data will be stored in &lt;localInputDir&gt; directory. Then the data will be copied to HDFS. It then generate 10 centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.</p>
+<p>It wil firstly generate 100 data points, each one is a 3-D vector. The data will be saved to HDFS. It then generate 10 initial centroids and write them to HDFS. For every iteration, it loads centroids and reads key-value pairs to do computation. And then write new centroids back to HDFS.</p>
 </div>
 <div class="section" id="view-the-results">
 <h2>View the Results<a class="headerlink" href="#view-the-results" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hdfs dfs -ls test-my-k
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ hdfs dfs -ls -R kmeans
 </pre></div>
 </div>
 </div>
