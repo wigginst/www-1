@@ -3,6 +3,12 @@ K-Means
 
 This section describes how to implement K-means algorithm using Hadoop.
 
+.. image:: images/figures/hadoopkmeans.png
+:height: 300px
+   :width: 520px
+       :alt: hadoop kmeans
+       :align: center
+
 Pseudo Code
 ------------------
 Denote:
