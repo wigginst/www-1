@@ -31,6 +31,5 @@ Cloud Computing potentially has the capability to host both parallel and distrib
    members
    prerequisites
    tutorials
-   software
 
 

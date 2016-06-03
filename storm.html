@@ -26,6 +26,9 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="ADMICloud  documentation" href="index.html" />
+    <link rel="up" title="How to program using data processing tools Hadoop/Storm" href="HowToProgram.html" />
+    <link rel="next" title="Software" href="software.html" />
+    <link rel="prev" title="K-Means" href="kmeans.html" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -43,7 +46,16 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">ADMICloud  documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="software.html" title="Software"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kmeans.html" title="K-Means"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ADMICloud  documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="schedule.html" >Schedule</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="tutorials.html" >Tutorials</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="HowToProgram.html" accesskey="U">How to program using data processing tools Hadoop/Storm</a> &raquo;</li> 
       </ul>
     </div>
   
@@ -58,53 +70,197 @@
 <p>Apache Storm is a distributed stream processing engine.</p>
 <p>These are the things we will look at in this Tutorial.</p>
 <ul class="simple">
-<li>Download Apache Storm</li>
-<li>Set it up on your machine</li>
+<li>Word Count program</li>
+<li>Download Apache Storm and set it up on your machine</li>
+<li>Run Word Count</li>
 </ul>
-<div class="section" id="download-storm">
-<h2>Download storm<a class="headerlink" href="#download-storm" title="Permalink to this headline">¶</a></h2>
-<p>wget <a class="reference external" href="http://mirrors.ibiblio.org/apache/storm/apache-storm-0.10.1/apache-storm-0.10.1.tar.gz">http://mirrors.ibiblio.org/apache/storm/apache-storm-0.10.1/apache-storm-0.10.1.tar.gz</a></p>
-<p>tar -xvf apache-storm-0.10.1.tar.gz</p>
-</div>
-<div class="section" id="download-and-start-zookeeper">
-<h2>Download and start ZooKeeper<a class="headerlink" href="#download-and-start-zookeeper" title="Permalink to this headline">¶</a></h2>
-<p>wget <a class="reference external" href="http://apache.mirrors.pair.com/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz">http://apache.mirrors.pair.com/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz</a></p>
-<p>tar -xvf zookeeper-3.4.8.tar.gz</p>
-<p>cd zookeeper-3.4.8</p>
-<p>cp conf/zoo_sample.cfg conf/zoo.cfg</p>
-<p>./bin/zkServer.sh start</p>
-</div>
-<div class="section" id="start-storm-cluster-on-local-machine">
-<h2>Start Storm Cluster on Local machine<a class="headerlink" href="#start-storm-cluster-on-local-machine" title="Permalink to this headline">¶</a></h2>
-<p>cd ../apache-storm-0.10.1</p>
-<p>In one terminal start the nimbus server</p>
-<p>./bin/storm nimbus</p>
-<p>In another terminal start the supervisor</p>
-<p>./bin/storm supervisor</p>
-<p>In the 3rd terminal start the Storm Web UI</p>
-<p>./bin/storm ui</p>
-<p>Above command will start the Storm UI. You can visit</p>
-<p><a class="reference external" href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></p>
-<p>to view the storm cluster.</p>
-</div>
 <div class="section" id="word-count-example">
 <h2>Word Count example<a class="headerlink" href="#word-count-example" title="Permalink to this headline">¶</a></h2>
 <p>Word count is a simple streaming example where storm keeps track of the words and their counts streaming in. This example
 is included in the Storm distribution. The source code of the example can be found in</p>
 <p>examples/storm-starter/src/jvm/storm/starter/WordCountTopology.java</p>
 <p>In this example there are three processing units arranged in the graph.</p>
-<p>RandomSentenceSpout (spout) &#8211;&gt; SplitSentence (bolt) &#8211;&gt; WordCount (bolt)</p>
+<a class="reference internal image-reference" href="_images/storm_wordcount.png"><img alt="word count show case" class="align-center" src="_images/storm_wordcount.png" style="width: 520px; height: 300px;" /></a>
 <p>RandomSentenceSpout generates random sentnces. SplitSentence splits these sentences into words. These words are sent to
 WordCount bolt where the count is kept.</p>
+<p>Here is the source code of the WordCount.</p>
+<div class="section" id="randsentencespout">
+<h3>RandSentenceSpout<a class="headerlink" href="#randsentencespout" title="Permalink to this headline">¶</a></h3>
+<p>First it generates a random sentence and emit it to the Splitter.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RandomSentenceSpout</span> <span class="kd">extends</span> <span class="n">BaseRichSpout</span> <span class="o">{</span>
+  <span class="n">SpoutOutputCollector</span> <span class="n">_collector</span><span class="o">;</span>
+  <span class="n">Random</span> <span class="n">_rand</span><span class="o">;</span>
+
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">open</span><span class="o">(</span><span class="n">Map</span> <span class="n">conf</span><span class="o">,</span> <span class="n">TopologyContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">SpoutOutputCollector</span> <span class="n">collector</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">_collector</span> <span class="o">=</span> <span class="n">collector</span><span class="o">;</span>
+    <span class="n">_rand</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">nextTuple</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Utils</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">sentences</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span> <span class="s">&quot;the cow jumped over the moon&quot;</span><span class="o">,</span> <span class="s">&quot;an apple a day keeps the doctor away&quot;</span><span class="o">,</span>
+        <span class="s">&quot;four score and seven years ago&quot;</span><span class="o">,</span> <span class="s">&quot;snow white and the seven dwarfs&quot;</span><span class="o">,</span> <span class="s">&quot;i am at two with nature&quot;</span> <span class="o">};</span>
+    <span class="n">String</span> <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentences</span><span class="o">[</span><span class="n">_rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">sentences</span><span class="o">.</span><span class="na">length</span><span class="o">)];</span>
+    <span class="n">_collector</span><span class="o">.</span><span class="na">emit</span><span class="o">(</span><span class="k">new</span> <span class="n">Values</span><span class="o">(</span><span class="n">sentence</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ack</span><span class="o">(</span><span class="n">Object</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fail</span><span class="o">(</span><span class="n">Object</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">declareOutputFields</span><span class="o">(</span><span class="n">OutputFieldsDeclarer</span> <span class="n">declarer</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">declarer</span><span class="o">.</span><span class="na">declare</span><span class="o">(</span><span class="k">new</span> <span class="n">Fields</span><span class="o">(</span><span class="s">&quot;word&quot;</span><span class="o">));</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="splitsentence-bolt">
+<h3>SplitSentence Bolt<a class="headerlink" href="#splitsentence-bolt" title="Permalink to this headline">¶</a></h3>
+<p>Receives sentences and splits them in to words. Words are emitted to the WordCount bolt.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SplitSentence</span> <span class="kd">extends</span> <span class="n">ShellBolt</span> <span class="kd">implements</span> <span class="n">IRichBolt</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">SplitSentence</span><span class="o">()</span> <span class="o">{</span>
+      <span class="kd">super</span><span class="o">(</span><span class="s">&quot;python&quot;</span><span class="o">,</span> <span class="s">&quot;splitsentence.py&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">declareOutputFields</span><span class="o">(</span><span class="n">OutputFieldsDeclarer</span> <span class="n">declarer</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">declarer</span><span class="o">.</span><span class="na">declare</span><span class="o">(</span><span class="k">new</span> <span class="n">Fields</span><span class="o">(</span><span class="s">&quot;word&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="nf">getComponentConfiguration</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The above class uses a python file to split the sentences.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">storm</span>
+
+<span class="kd">class</span> <span class="nf">SplitSentenceBolt</span><span class="o">(</span><span class="n">storm</span><span class="o">.</span><span class="na">BasicBolt</span><span class="o">):</span>
+    <span class="n">def</span> <span class="nf">process</span><span class="o">(</span><span class="n">self</span><span class="o">,</span> <span class="n">tup</span><span class="o">):</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">tup</span><span class="o">.</span><span class="na">values</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">split</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">)</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="n">in</span> <span class="n">words</span><span class="o">:</span>
+          <span class="n">storm</span><span class="o">.</span><span class="na">emit</span><span class="o">([</span><span class="n">word</span><span class="o">])</span>
+
+<span class="n">SplitSentenceBolt</span><span class="o">().</span><span class="na">run</span><span class="o">()</span>
+</pre></div>
+</div>
+<p>It will be a good exercise to change the source code to pure Java.</p>
+</div>
+<div class="section" id="wordcount-bolt">
+<h3>WordCount Bolt<a class="headerlink" href="#wordcount-bolt" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">WordCount</span> <span class="kd">extends</span> <span class="n">BaseBasicBolt</span> <span class="o">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">counts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="n">Tuple</span> <span class="n">tuple</span><span class="o">,</span> <span class="n">BasicOutputCollector</span> <span class="n">collector</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">word</span> <span class="o">=</span> <span class="n">tuple</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      <span class="n">Integer</span> <span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">word</span><span class="o">);</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="n">count</span><span class="o">++;</span>
+      <span class="n">counts</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">count</span><span class="o">);</span>
+      <span class="n">collector</span><span class="o">.</span><span class="na">emit</span><span class="o">(</span><span class="k">new</span> <span class="n">Values</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">count</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">declareOutputFields</span><span class="o">(</span><span class="n">OutputFieldsDeclarer</span> <span class="n">declarer</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">declarer</span><span class="o">.</span><span class="na">declare</span><span class="o">(</span><span class="k">new</span> <span class="n">Fields</span><span class="o">(</span><span class="s">&quot;word&quot;</span><span class="o">,</span> <span class="s">&quot;count&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-the-topology">
+<h3>Building the Topology<a class="headerlink" href="#building-the-topology" title="Permalink to this headline">¶</a></h3>
+<p>This code arranges the components described earlier in to a graph.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">TopologyBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TopologyBuilder</span><span class="o">();</span>
+    <span class="n">builder</span><span class="o">.</span><span class="na">setSpout</span><span class="o">(</span><span class="s">&quot;spout&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">RandomSentenceSpout</span><span class="o">(),</span> <span class="mi">5</span><span class="o">);</span>
+    <span class="n">builder</span><span class="o">.</span><span class="na">setBolt</span><span class="o">(</span><span class="s">&quot;split&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">SplitSentence</span><span class="o">(),</span> <span class="mi">8</span><span class="o">).</span><span class="na">shuffleGrouping</span><span class="o">(</span><span class="s">&quot;spout&quot;</span><span class="o">);</span>
+    <span class="n">builder</span><span class="o">.</span><span class="na">setBolt</span><span class="o">(</span><span class="s">&quot;count&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">WordCount</span><span class="o">(),</span> <span class="mi">12</span><span class="o">).</span><span class="na">fieldsGrouping</span><span class="o">(</span><span class="s">&quot;split&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">Fields</span><span class="o">(</span><span class="s">&quot;word&quot;</span><span class="o">));</span>
+
+    <span class="n">Config</span> <span class="n">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Config</span><span class="o">();</span>
+    <span class="n">conf</span><span class="o">.</span><span class="na">setDebug</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">args</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">conf</span><span class="o">.</span><span class="na">setNumWorkers</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+      <span class="n">StormSubmitter</span><span class="o">.</span><span class="na">submitTopologyWithProgressBar</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">conf</span><span class="o">,</span> <span class="n">builder</span><span class="o">.</span><span class="na">createTopology</span><span class="o">());</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">conf</span><span class="o">.</span><span class="na">setMaxTaskParallelism</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+      <span class="n">LocalCluster</span> <span class="n">cluster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalCluster</span><span class="o">();</span>
+      <span class="n">cluster</span><span class="o">.</span><span class="na">submitTopology</span><span class="o">(</span><span class="s">&quot;word-count&quot;</span><span class="o">,</span> <span class="n">conf</span><span class="o">,</span> <span class="n">builder</span><span class="o">.</span><span class="na">createTopology</span><span class="o">());</span>
+      <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">10000</span><span class="o">);</span>
+      <span class="n">cluster</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="storm-setup">
+<h2>Storm Setup<a class="headerlink" href="#storm-setup" title="Permalink to this headline">¶</a></h2>
+<p>Now lets look at how to setup a Storm Cluster in your local machine. A storm cluster needs Apache ZooKeeper running</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>wget http://mirrors.ibiblio.org/apache/storm/apache-storm-0.10.1/apache-storm-0.10.1.tar.gz
+tar -xvf apache-storm-0.10.1.tar.gz
+</pre></div>
+</div>
+<div class="section" id="download-and-start-zookeeper">
+<h3>Download and start ZooKeeper<a class="headerlink" href="#download-and-start-zookeeper" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>wget http://apache.mirrors.pair.com/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz
+tar -xvf zookeeper-3.4.8.tar.gz
+<span class="nb">cd</span> zookeeper-3.4.8
+cp conf/zoo_sample.cfg conf/zoo.cfg
+./bin/zkServer.sh start
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-storm-cluster-on-local-machine">
+<h3>Start Storm Cluster on Local machine<a class="headerlink" href="#start-storm-cluster-on-local-machine" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../apache-storm-0.10.1
+</pre></div>
+</div>
+<p>In one terminal start the nimbus server</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/storm nimbus
+</pre></div>
+</div>
+<p>In another terminal start the supervisor</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/storm supervisor
+</pre></div>
+</div>
+<p>In the 3rd terminal start the Storm Web UI</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/storm ui
+</pre></div>
+</div>
+<p>Above command will start the Storm UI. You can visit</p>
+<p><a class="reference external" href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></p>
+<p>to view the storm cluster.</p>
 </div>
 <div class="section" id="run-the-example-word-count">
-<h2>Run the example word count<a class="headerlink" href="#run-the-example-word-count" title="Permalink to this headline">¶</a></h2>
+<h3>Run the example word count<a class="headerlink" href="#run-the-example-word-count" title="Permalink to this headline">¶</a></h3>
 <p>Now open another termial to run a Storm example word count</p>
-<p>./bin/storm jar examples/storm-starter/storm-starter-topologies-0.10.1.jar storm.starter.WordCountTopology WordCount</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/storm jar examples/storm-starter/storm-starter-topologies-0.10.1.jar storm.starter.WordCountTopology WordCount
+</pre></div>
+</div>
 <p>You can view the topology by going to the web browser.</p>
 <p><a class="reference external" href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></p>
 <p>To kill the topology use the command</p>
-<p>./bin/storm kill WordCount</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/storm <span class="nb">kill</span> WordCount
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -114,12 +270,11 @@ WordCount bolt where the count is kept.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="globaltoc"
-><ul>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule</a></li>
+><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="schedule.html">Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="members.html">Members</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 </ul>
 
 </ul>
@@ -144,7 +299,16 @@ WordCount bolt where the count is kept.</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">ADMICloud  documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="software.html" title="Software"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="kmeans.html" title="K-Means"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ADMICloud  documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="schedule.html" >Schedule</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="tutorials.html" >Tutorials</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="HowToProgram.html" >How to program using data processing tools Hadoop/Storm</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
