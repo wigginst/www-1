@@ -10,7 +10,7 @@ Hadoop is an open source framework for distributed storage and processing of lar
 
 
 Apache Storm
---------
+-------------
 
 .. figure:: http://storm.apache.org/images/logo.png 
    :alt: Storm
@@ -20,7 +20,7 @@ Storm is an open source framework for distributed streaming data processing. Sto
 
 
 Amazon Elastic Compute Cloud (EC2)
---------
+------------------------------------------------
 
 .. figure:: http://quintagroup.com/cms/amazon/ec2.png
    :alt: Amazon

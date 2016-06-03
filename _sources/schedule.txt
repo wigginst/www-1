@@ -38,21 +38,4 @@ Day Three (Sunday June 12)
 
     12:00 - 1:30  Working Lunch and Wrap-up
 
-
-
-
-
-
-----------------------------------------------------------------------
-
-Contents:
-
-.. toctree::
-   :maxdepth: 1
-
-   members
-   tutorials
-   software
-
-
    
