@@ -1,8 +1,17 @@
 Setup Hadoop
 ===============
 
-This section describes how to setup hadoop on one instance.
 
+Hadoop
+--------
+
+.. figure:: http://hadoop.apache.org/images/hadoop-logo.jpg
+   :alt: Hadoop
+   :width: 400
+
+Hadoop is an open source framework for distributed storage and processing of large datasets on a commodity cluster. Hadoop utilizes the Hadoop Distributed File System (HDFS) for data storage and the MapReduce model for computational processing. Hadoop 2.0 also includes the YARN resource management platform which manages multiple nodes within the cluster and is responsible for task scheduling.
+
+This section describes how to setup hadoop on one instance.
 
 Preparation
 ------------------
@@ -276,4 +285,3 @@ If you are done, you can stop all daemons by
 
     $ $HADOOP_HOME/sbin/stop-dfs.sh
     $ $HADOOP_HOME/sbin/stop-yarn.sh
-
