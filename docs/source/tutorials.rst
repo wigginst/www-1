@@ -1,37 +1,11 @@
 Tutorials
 =========
 
-
-Prerequisite: Amazon EC2
-------------------------
-
-Learn how to log into Amazon EC2 instances to access software for the workshop.
-
-
-Ex 1: Wordcount on Hadoop
--------------------------
-
-Wordcount using MapReduce on Hadoop. 
-
-Ex 2: K-Means clustering on Hadoop
-----------------------------------
-
-Exploring and evaluating the K-Means clustering algorithm on Hadoop.
-
-
-Ex 3: WordCount on Storm 
-------------------------
-
-Utilize a streaming wordcount system using the Storm streaming tool.
-
-----------------------------------------------------------------------
-
 Contents:
 
 .. toctree::
    :maxdepth: 1
 
-   amazon
-   wordcount
-   kmeans
-   storm
+   How to create online courses using MOOC/edX
+   How to use Amazon Cloud for hands-on Labs
+   How to program using data processing tools Hadoop/Storm
