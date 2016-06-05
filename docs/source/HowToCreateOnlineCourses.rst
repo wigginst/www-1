@@ -93,3 +93,26 @@ Click the name of the unit to edit it. The user needs to import the lesson he/sh
    :width: 720px
    :alt: video
    :align: center
+
+Import/Export Your Course
+-------------------------
+
+edX provides an easy way for the users to migrate courses between edX platforms. These two functions are in "Tools" at the header of the CMS (studio).
+
+- Import
+	By clicking "Import" button, the user should be able to see an introduction of the import function and a big green button on the main page. Click the "Choose a File to Import" button, and select a .tar.gz file which includes the detials of the course that the user wants to import. If the user imports a new course, he/she must create a blank course as the base. What edX does is using the .tar.gz file to replace the current course which is blank. If the user only needs to update, then he/she can just use the current course.
+
+.. image:: images/edx/import.png
+   :height: 480px
+   :width: 720px
+   :alt: import
+   :align: center
+
+- Export
+	Export function is more like a download function. After load into its page, the user can click "Export Course Content" button to download a .tar.gz file including the whole course content. If the user is familiar with HTML language, he/she should be able to edit the source code as he/she wants. The user must keep the structure of the course content, otherwise when importing this course, the CMS will throw out an error.
+
+.. image:: images/edx/export.png
+   :height: 400px
+   :width: 720px
+   :alt: export
+   :align: center
