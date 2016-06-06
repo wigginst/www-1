@@ -129,11 +129,11 @@ The library in edX is a tool for the users who need to reuse course modules whic
    :alt: library
    :align: center
 
-Like the figure showing above, the user needs to change to "Librayies" under the "Studio Home", then click "+ Create Your First Library" button to create a new library. Next the user needs to fill the form as what he/she does in creating a new course.
+Like the figure showing above, the user needs to change to "Libraries" under the "Studio Home", then click "+ Create Your First Library" button to create a new library. Next the user needs to fill the form as what he/she does in creating a new course.
 
 Libraries provide three types of Xblock: HTML, Problem, Video. The descriptions of these three is same as in unit. Make sure the Xblock in the repository has an unique display name, because edX uses this variable to link from the course.
 
-As courses, libraries has "import" and "export" functions as well. The operations are also same as in importing/exporting courses.
+Like courses, libraries has "import" and "export" functions as well. The operations are also same as in importing/exporting courses.
 
 Use Modules in Libraries
 ------------------------
@@ -183,3 +183,5 @@ After click "Save" button and assume the user inputs a correct name, the Xblock 
    :width: 700px
    :alt: link
    :align: center
+
+The user should be able to click "View" button to check the Xblock in the library. After publish this unit to LMS, LMS will show the Xblock in the library automatically.
