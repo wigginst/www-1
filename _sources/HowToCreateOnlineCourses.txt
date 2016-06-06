@@ -116,3 +116,70 @@ edX provides an easy way for the users to migrate courses between edX platforms.
    :width: 720px
    :alt: export
    :align: center
+
+
+Create Your Library
+-------------------
+
+The library in edX is a tool for the users who need to reuse course modules which already exist. The user should first enable courses can access to the direct library in "Settings", then he/she can create a link which links to the Xblock they have already stored in the library.
+
+.. image:: images/edx/library.png
+   :height: 300px
+   :width: 720px
+   :alt: library
+   :align: center
+
+Like the figure showing above, the user needs to change to "Librayies" under the "Studio Home", then click "+ Create Your First Library" button to create a new library. Next the user needs to fill the form as what he/she does in creating a new course.
+
+Libraries provide three types of Xblock: HTML, Problem, Video. The descriptions of these three is same as in unit. Make sure the Xblock in the repository has an unique display name, because edX uses this variable to link from the course.
+
+As courses, libraries has "import" and "export" functions as well. The operations are also same as in importing/exporting courses.
+
+Use Modules in Libraries
+------------------------
+
+The user should first make the course access to the library from which they want to import course modules. Click into the course, then go to "Settings" in the head and click "Advanced Settings".
+
+.. image:: images/edx/settings.png
+   :height: 170px
+   :width: 400px
+   :alt: settings
+   :align: center
+
+Then the user needs to add "openassessment", "tagging", "library_content" in the first box. Just type them in "[]", like the figure shows below. Next, click "Save Changes" yellow button at the bottom of the page. The user will see a green checkmark at the header, saying that "Your policy changes have been saved".
+
+.. image:: images/edx/input.png
+   :height: 340px
+   :width: 700px
+   :alt: input
+   :align: center
+
+Go back to the unit which you want to import from an existed module, the user should be able to find a new component named "Advanced" at the first. Click it and choose "Randomized Content Block" to create a new Xblock.
+
+.. image:: images/edx/components.png
+   :height: 170px
+   :width: 700px
+   :alt: components
+   :align: center
+
+The user should edit this Xblock in order to link to the existed module in the library. Click "Edit" in the header of the Xblock and input the display name of the Xblock in the library in the first box, choose the library which concludes the module in library dropdown box as shown below.
+
+.. image:: images/edx/namebox.png
+   :height: 115px
+   :width: 620px
+   :alt: namebox
+   :align: center
+
+.. image:: images/edx/librarybox.png
+   :height: 100px
+   :width: 650px
+   :alt: librarybox
+   :align: center
+
+After click "Save" button and assume the user inputs a correct name, the Xblock should be like as follows:
+
+.. image:: images/edx/link.png
+   :height: 120px
+   :width: 700px
+   :alt: link
+   :align: center
