@@ -185,3 +185,30 @@ After click "Save" button and assume the user inputs a correct name, the Xblock 
    :align: center
 
 The user should be able to click "View" button to check the Xblock in the library. After publish this unit to LMS, LMS will show the Xblock in the library automatically.
+
+Assemble Your Course From Libraries
+-----------------------------------
+
+The user can use the instruction above to create the structure of a course, then in one unit (lesson), he/she should be able to import course modules from the libraries.
+
+.. image:: images/edx/modules.png
+   :height: 200px
+   :width: 700px
+   :alt: modules
+   :align: center
+
+The figure shows a sample lesson which includes two parts from the library the user choose. The user can click "View" button in the right to see the detail of the Xblock he/she links.
+
+The user can click "Publish" button in the right side to publish this lesson to student. This sample in LMS (student view) should be like as follows.
+
+.. image:: images/edx/LMS1.png
+   :height: 500px
+   :width: 700px
+   :alt: LMS1
+   :align: center
+
+.. image:: images/edx/LMS2.png
+   :height: 300px
+   :width: 700px
+   :alt: LMS2
+   :align: center
