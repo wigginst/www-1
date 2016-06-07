@@ -18,6 +18,7 @@ Cloud Computing potentially has the capability to host both parallel and distrib
    :maxdepth: 1
    :hidden:
 
+   self
    schedule
    members
    prerequisites
