@@ -119,6 +119,8 @@ todo_include_todos = True
 #html_theme = 'alabaster'
 #html_theme = 'bootstrap'
 html_theme = 'pyramid'
+#html_theme = 'sphinx_rtd_theme'
+#html_theme = 'traditional'
 #html_theme = "pietroalbini"
 #html_theme_path = [pietroalbini_sphinx_themes.themes_path()]
 #html_theme_path = ["../_themes",]
@@ -127,7 +129,7 @@ html_theme = 'pyramid'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {}
+html_theme_options ={}
 # html_theme_options = {
 #     # Navigation bar title. (Default: ``project`` value)
 #     'navbar_title': "ADMICloud",
