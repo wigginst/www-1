@@ -1,12 +1,12 @@
-Word Count
+WordCount
 ==========
-Word Count is a simple and easy to understand algorithm which can be easily implemented as a mapreduce application. Given a set of text documents, the program counts the number of occurrences of each word. The algorithm consists of three main sections.
+WordCount is a simple and easy to understand algorithm which can be implemented as a mapreduce application. Given a set of text documents, the program counts the number of occurrences of each word. The algorithm consists of three main sections:
 
     1. Main Program
     2. Mapper
     3. Reducer
 
-An example of Hadoop Word Count is as follows:
+An example of Hadoop WordCount is as follows:
 
 .. image:: images/figures/wordcount.png
    :height: 300px
