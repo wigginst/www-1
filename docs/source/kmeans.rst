@@ -9,6 +9,29 @@ This section describes how to implement K-means algorithm using Hadoop.
    :alt: hadoop kmeans
    :align: center
 
+
+Understanding K-Means
+-------------------
+K-Means is a very powerful and simple to understand clustering algorithm. The aim of the algorithm is to divide a given set of points into "K" partitions. "K" needs to be specified
+by the user. In order to understand K-Means first you need to understand the following concepts and there meaning
+
+1. Centroids
+    Centroids can be defined as center of each cluster. If we are performing clustering with k=3 we will have 3 centroids. In order to perform K-Means clustering the users needs to
+    provide the initial set of centroids.
+
+2. Distance
+    In order to group data points as close together or as far-apart we need to define a distance between two given data points. In K-Means clustering distance is normally calculated as the Euclidean
+    Distance between two data points.
+
+The algorithm of K-Means is very easy to understand. K-Means simply repeats the following set of steps until there is no change in the partition assignments (i.e which data point is
+assigned to which partition).
+
+    1. Initialize K points as the initial set of centroids.
+    2. Assign each data point in the data set to the closest centroid (this is done by calculating the distance between the data point and each centroid)
+    3. Calculate the new centroids based on the clusters that were generated in step 2. Normally this is done by calculating the mean of each cluster
+    4. Repeat steps 2 and 3 until centroids stop moving ( i.e data points do not change cluster assignments.
+
+
 Pseudo Code
 ------------------
 Denote:
